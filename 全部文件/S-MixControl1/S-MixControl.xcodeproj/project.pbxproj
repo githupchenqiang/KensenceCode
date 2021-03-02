@@ -1,0 +1,736 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		001E18101C09D64C00048E7B /* SignalViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 001E180F1C09D64C00048E7B /* SignalViewController.m */; };
+		001E18231C09D81D00048E7B /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 001E18131C09D81D00048E7B /* AppDelegate.m */; };
+		001E18241C09D81D00048E7B /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 001E18151C09D81D00048E7B /* ViewController.m */; };
+		001E18251C09D81D00048E7B /* ChangeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 001E18181C09D81D00048E7B /* ChangeViewController.m */; };
+		001E18271C09D81D00048E7B /* ConseverViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 001E181F1C09D81D00048E7B /* ConseverViewController.m */; };
+		0027C5061C197688001ED45D /* SubsenceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0027C5051C197688001ED45D /* SubsenceViewController.m */; };
+		0054C3B01C07E5CA004E4D74 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 0054C3AF1C07E5CA004E4D74 /* main.m */; };
+		0054C3B91C07E5CA004E4D74 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0054C3B71C07E5CA004E4D74 /* Main.storyboard */; };
+		0054C3BB1C07E5CA004E4D74 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0054C3BA1C07E5CA004E4D74 /* Assets.xcassets */; };
+		0054C3BE1C07E5CA004E4D74 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0054C3BC1C07E5CA004E4D74 /* LaunchScreen.storyboard */; };
+		0054C3C91C07E5CA004E4D74 /* S_MixControlTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 0054C3C81C07E5CA004E4D74 /* S_MixControlTests.m */; };
+		0054C3D41C07E5CA004E4D74 /* S_MixControlUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 0054C3D31C07E5CA004E4D74 /* S_MixControlUITests.m */; };
+		00711ABD1C104D090096BCBB /* SockerSever.m in Sources */ = {isa = PBXBuildFile; fileRef = 00711ABC1C104D090096BCBB /* SockerSever.m */; };
+		00A2A9411C0FE4E300F277EB /* SignalValue.m in Sources */ = {isa = PBXBuildFile; fileRef = 00A2A9401C0FE4E300F277EB /* SignalValue.m */; };
+		00E22DBF1C0DB6510061AA59 /* ConnectViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E22DBE1C0DB6510061AA59 /* ConnectViewController.m */; };
+		00E22DC21C0DC0490061AA59 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E22DC11C0DC0490061AA59 /* LoginViewController.m */; };
+		00FE080C1C0D772100A88295 /* GCDAsyncUdpSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = 00FE080B1C0D772100A88295 /* GCDAsyncUdpSocket.m */; };
+		00FE080F1C0D89D000A88295 /* ConnectPort.mm in Sources */ = {isa = PBXBuildFile; fileRef = 00FE080E1C0D89D000A88295 /* ConnectPort.mm */; };
+		0B0DCB4E1C2250B300A19551 /* NSArray+Emptyarray.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B0DCB4D1C2250B300A19551 /* NSArray+Emptyarray.m */; };
+		0B2CD59A1C55B85600767302 /* DataBaseHelp.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B2CD5991C55B85600767302 /* DataBaseHelp.m */; };
+		0B409A5D1C1EC8D9004775E2 /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 0B409A5C1C1EC8D9004775E2 /* libsqlite3.tbd */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		0054C3C51C07E5CA004E4D74 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 0054C3A31C07E5C9004E4D74 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 0054C3AA1C07E5C9004E4D74;
+			remoteInfo = "S-MixControl";
+		};
+		0054C3D01C07E5CA004E4D74 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 0054C3A31C07E5C9004E4D74 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 0054C3AA1C07E5C9004E4D74;
+			remoteInfo = "S-MixControl";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		001E180E1C09D64C00048E7B /* SignalViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SignalViewController.h; sourceTree = "<group>"; };
+		001E180F1C09D64C00048E7B /* SignalViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SignalViewController.m; sourceTree = "<group>"; };
+		001E18121C09D81D00048E7B /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		001E18131C09D81D00048E7B /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		001E18141C09D81D00048E7B /* ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		001E18151C09D81D00048E7B /* ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		001E18171C09D81D00048E7B /* ChangeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChangeViewController.h; sourceTree = "<group>"; };
+		001E18181C09D81D00048E7B /* ChangeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChangeViewController.m; sourceTree = "<group>"; };
+		001E181E1C09D81D00048E7B /* ConseverViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConseverViewController.h; sourceTree = "<group>"; };
+		001E181F1C09D81D00048E7B /* ConseverViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ConseverViewController.m; sourceTree = "<group>"; };
+		0027C5041C197688001ED45D /* SubsenceViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SubsenceViewController.h; sourceTree = "<group>"; };
+		0027C5051C197688001ED45D /* SubsenceViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SubsenceViewController.m; sourceTree = "<group>"; };
+		0054C3AB1C07E5CA004E4D74 /* S-mixcontrol.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "S-mixcontrol.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		0054C3AF1C07E5CA004E4D74 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		0054C3B81C07E5CA004E4D74 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		0054C3BA1C07E5CA004E4D74 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		0054C3BD1C07E5CA004E4D74 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		0054C3BF1C07E5CA004E4D74 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		0054C3C41C07E5CA004E4D74 /* S-MixControlTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "S-MixControlTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		0054C3C81C07E5CA004E4D74 /* S_MixControlTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = S_MixControlTests.m; sourceTree = "<group>"; };
+		0054C3CA1C07E5CA004E4D74 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		0054C3CF1C07E5CA004E4D74 /* S-MixControlUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "S-MixControlUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		0054C3D31C07E5CA004E4D74 /* S_MixControlUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = S_MixControlUITests.m; sourceTree = "<group>"; };
+		0054C3D51C07E5CA004E4D74 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		00711ABB1C104D090096BCBB /* SockerSever.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SockerSever.h; sourceTree = "<group>"; };
+		00711ABC1C104D090096BCBB /* SockerSever.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SockerSever.m; sourceTree = "<group>"; };
+		00A2A93F1C0FE4E300F277EB /* SignalValue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SignalValue.h; sourceTree = "<group>"; };
+		00A2A9401C0FE4E300F277EB /* SignalValue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SignalValue.m; sourceTree = "<group>"; };
+		00E22DBD1C0DB6510061AA59 /* ConnectViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConnectViewController.h; sourceTree = "<group>"; };
+		00E22DBE1C0DB6510061AA59 /* ConnectViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ConnectViewController.m; sourceTree = "<group>"; };
+		00E22DC01C0DC0490061AA59 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
+		00E22DC11C0DC0490061AA59 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
+		00FE080A1C0D772100A88295 /* GCDAsyncUdpSocket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCDAsyncUdpSocket.h; sourceTree = "<group>"; };
+		00FE080B1C0D772100A88295 /* GCDAsyncUdpSocket.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCDAsyncUdpSocket.m; sourceTree = "<group>"; };
+		00FE080D1C0D89D000A88295 /* ConnectPort.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConnectPort.h; sourceTree = "<group>"; };
+		00FE080E1C0D89D000A88295 /* ConnectPort.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = ConnectPort.mm; sourceTree = "<group>"; };
+		0B0DCB4C1C2250B300A19551 /* NSArray+Emptyarray.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+Emptyarray.h"; sourceTree = "<group>"; };
+		0B0DCB4D1C2250B300A19551 /* NSArray+Emptyarray.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+Emptyarray.m"; sourceTree = "<group>"; };
+		0B2CD5981C55B85600767302 /* DataBaseHelp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataBaseHelp.h; sourceTree = "<group>"; };
+		0B2CD5991C55B85600767302 /* DataBaseHelp.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataBaseHelp.m; sourceTree = "<group>"; };
+		0B409A5C1C1EC8D9004775E2 /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
+		0BAF88DA1C33C59F00E2183C /* CQHeader.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CQHeader.pch; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		0054C3A81C07E5C9004E4D74 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0B409A5D1C1EC8D9004775E2 /* libsqlite3.tbd in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		0054C3C11C07E5CA004E4D74 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		0054C3CC1C07E5CA004E4D74 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		001E180D1C09D64C00048E7B /* signalViewControll */ = {
+			isa = PBXGroup;
+			children = (
+				001E180E1C09D64C00048E7B /* SignalViewController.h */,
+				001E180F1C09D64C00048E7B /* SignalViewController.m */,
+			);
+			name = signalViewControll;
+			path = "S-MixControl/signalViewControll";
+			sourceTree = "<group>";
+		};
+		001E18111C09D81D00048E7B /* AppDelegate */ = {
+			isa = PBXGroup;
+			children = (
+				001E18121C09D81D00048E7B /* AppDelegate.h */,
+				001E18131C09D81D00048E7B /* AppDelegate.m */,
+				001E18141C09D81D00048E7B /* ViewController.h */,
+				001E18151C09D81D00048E7B /* ViewController.m */,
+			);
+			name = AppDelegate;
+			path = "S-MixControl/AppDelegate";
+			sourceTree = "<group>";
+		};
+		001E18161C09D81D00048E7B /* ChangeControl */ = {
+			isa = PBXGroup;
+			children = (
+				001E18171C09D81D00048E7B /* ChangeViewController.h */,
+				001E18181C09D81D00048E7B /* ChangeViewController.m */,
+				0027C5041C197688001ED45D /* SubsenceViewController.h */,
+				0027C5051C197688001ED45D /* SubsenceViewController.m */,
+			);
+			name = ChangeControl;
+			path = "S-MixControl/ChangeControl";
+			sourceTree = "<group>";
+		};
+		001E18191C09D81D00048E7B /* ConnectControl */ = {
+			isa = PBXGroup;
+			children = (
+				00E22DBD1C0DB6510061AA59 /* ConnectViewController.h */,
+				00E22DBE1C0DB6510061AA59 /* ConnectViewController.m */,
+			);
+			name = ConnectControl;
+			path = "S-MixControl/ConnectControl";
+			sourceTree = "<group>";
+		};
+		001E181C1C09D81D00048E7B /* Consence */ = {
+			isa = PBXGroup;
+			children = (
+				00FE080D1C0D89D000A88295 /* ConnectPort.h */,
+				00FE080E1C0D89D000A88295 /* ConnectPort.mm */,
+			);
+			name = Consence;
+			path = "S-MixControl/Consence";
+			sourceTree = "<group>";
+		};
+		001E181D1C09D81D00048E7B /* ConseverControl */ = {
+			isa = PBXGroup;
+			children = (
+				001E181E1C09D81D00048E7B /* ConseverViewController.h */,
+				001E181F1C09D81D00048E7B /* ConseverViewController.m */,
+			);
+			name = ConseverControl;
+			path = "S-MixControl/ConseverControl";
+			sourceTree = "<group>";
+		};
+		001E18201C09D81D00048E7B /* FramWork */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = FramWork;
+			path = "S-MixControl/FramWork";
+			sourceTree = "<group>";
+		};
+		001E18211C09D81D00048E7B /* HelpSever */ = {
+			isa = PBXGroup;
+			children = (
+				00711ABB1C104D090096BCBB /* SockerSever.h */,
+				00711ABC1C104D090096BCBB /* SockerSever.m */,
+				0B2CD5981C55B85600767302 /* DataBaseHelp.h */,
+				0B2CD5991C55B85600767302 /* DataBaseHelp.m */,
+				0B0DCB4C1C2250B300A19551 /* NSArray+Emptyarray.h */,
+				0B0DCB4D1C2250B300A19551 /* NSArray+Emptyarray.m */,
+			);
+			name = HelpSever;
+			path = "S-MixControl/HelpSever";
+			sourceTree = "<group>";
+		};
+		001E18221C09D81D00048E7B /* Macro */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Macro;
+			path = "S-MixControl/Macro";
+			sourceTree = "<group>";
+		};
+		0054C3A21C07E5C9004E4D74 = {
+			isa = PBXGroup;
+			children = (
+				0B409A5C1C1EC8D9004775E2 /* libsqlite3.tbd */,
+				00FE08091C0D772100A88295 /* GCDAsyncUdpScoket */,
+				001E18111C09D81D00048E7B /* AppDelegate */,
+				001E180D1C09D64C00048E7B /* signalViewControll */,
+				001E18161C09D81D00048E7B /* ChangeControl */,
+				001E181D1C09D81D00048E7B /* ConseverControl */,
+				001E18191C09D81D00048E7B /* ConnectControl */,
+				001E181C1C09D81D00048E7B /* Consence */,
+				001E18201C09D81D00048E7B /* FramWork */,
+				001E18211C09D81D00048E7B /* HelpSever */,
+				001E18221C09D81D00048E7B /* Macro */,
+				0054C3AD1C07E5CA004E4D74 /* S-MixControl */,
+				0054C3C71C07E5CA004E4D74 /* S-MixControlTests */,
+				0054C3D21C07E5CA004E4D74 /* S-MixControlUITests */,
+				0054C3AC1C07E5CA004E4D74 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		0054C3AC1C07E5CA004E4D74 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				0054C3AB1C07E5CA004E4D74 /* S-mixcontrol.app */,
+				0054C3C41C07E5CA004E4D74 /* S-MixControlTests.xctest */,
+				0054C3CF1C07E5CA004E4D74 /* S-MixControlUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		0054C3AD1C07E5CA004E4D74 /* S-MixControl */ = {
+			isa = PBXGroup;
+			children = (
+				00E22DC01C0DC0490061AA59 /* LoginViewController.h */,
+				00E22DC11C0DC0490061AA59 /* LoginViewController.m */,
+				00A2A93F1C0FE4E300F277EB /* SignalValue.h */,
+				00A2A9401C0FE4E300F277EB /* SignalValue.m */,
+				0054C3B71C07E5CA004E4D74 /* Main.storyboard */,
+				0054C3BA1C07E5CA004E4D74 /* Assets.xcassets */,
+				0054C3BC1C07E5CA004E4D74 /* LaunchScreen.storyboard */,
+				0054C3BF1C07E5CA004E4D74 /* Info.plist */,
+				0054C3AE1C07E5CA004E4D74 /* Supporting Files */,
+			);
+			path = "S-MixControl";
+			sourceTree = "<group>";
+		};
+		0054C3AE1C07E5CA004E4D74 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				0054C3AF1C07E5CA004E4D74 /* main.m */,
+				0BAF88DA1C33C59F00E2183C /* CQHeader.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		0054C3C71C07E5CA004E4D74 /* S-MixControlTests */ = {
+			isa = PBXGroup;
+			children = (
+				0054C3C81C07E5CA004E4D74 /* S_MixControlTests.m */,
+				0054C3CA1C07E5CA004E4D74 /* Info.plist */,
+			);
+			path = "S-MixControlTests";
+			sourceTree = "<group>";
+		};
+		0054C3D21C07E5CA004E4D74 /* S-MixControlUITests */ = {
+			isa = PBXGroup;
+			children = (
+				0054C3D31C07E5CA004E4D74 /* S_MixControlUITests.m */,
+				0054C3D51C07E5CA004E4D74 /* Info.plist */,
+			);
+			path = "S-MixControlUITests";
+			sourceTree = "<group>";
+		};
+		00FE08091C0D772100A88295 /* GCDAsyncUdpScoket */ = {
+			isa = PBXGroup;
+			children = (
+				00FE080A1C0D772100A88295 /* GCDAsyncUdpSocket.h */,
+				00FE080B1C0D772100A88295 /* GCDAsyncUdpSocket.m */,
+			);
+			path = GCDAsyncUdpScoket;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		0054C3AA1C07E5C9004E4D74 /* S-mixcontrol */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 0054C3D81C07E5CA004E4D74 /* Build configuration list for PBXNativeTarget "S-mixcontrol" */;
+			buildPhases = (
+				0054C3A71C07E5C9004E4D74 /* Sources */,
+				0054C3A81C07E5C9004E4D74 /* Frameworks */,
+				0054C3A91C07E5C9004E4D74 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "S-mixcontrol";
+			productName = "S-MixControl";
+			productReference = 0054C3AB1C07E5CA004E4D74 /* S-mixcontrol.app */;
+			productType = "com.apple.product-type.application";
+		};
+		0054C3C31C07E5CA004E4D74 /* S-MixControlTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 0054C3DB1C07E5CA004E4D74 /* Build configuration list for PBXNativeTarget "S-MixControlTests" */;
+			buildPhases = (
+				0054C3C01C07E5CA004E4D74 /* Sources */,
+				0054C3C11C07E5CA004E4D74 /* Frameworks */,
+				0054C3C21C07E5CA004E4D74 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				0054C3C61C07E5CA004E4D74 /* PBXTargetDependency */,
+			);
+			name = "S-MixControlTests";
+			productName = "S-MixControlTests";
+			productReference = 0054C3C41C07E5CA004E4D74 /* S-MixControlTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		0054C3CE1C07E5CA004E4D74 /* S-MixControlUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 0054C3DE1C07E5CA004E4D74 /* Build configuration list for PBXNativeTarget "S-MixControlUITests" */;
+			buildPhases = (
+				0054C3CB1C07E5CA004E4D74 /* Sources */,
+				0054C3CC1C07E5CA004E4D74 /* Frameworks */,
+				0054C3CD1C07E5CA004E4D74 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				0054C3D11C07E5CA004E4D74 /* PBXTargetDependency */,
+			);
+			name = "S-MixControlUITests";
+			productName = "S-MixControlUITests";
+			productReference = 0054C3CF1C07E5CA004E4D74 /* S-MixControlUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		0054C3A31C07E5C9004E4D74 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0710;
+				ORGANIZATIONNAME = KaiXingChuangDa;
+				TargetAttributes = {
+					0054C3AA1C07E5C9004E4D74 = {
+						CreatedOnToolsVersion = 7.1.1;
+						DevelopmentTeam = 6KFS25Y962;
+					};
+					0054C3C31C07E5CA004E4D74 = {
+						CreatedOnToolsVersion = 7.1.1;
+						DevelopmentTeam = M27U6W77DY;
+						TestTargetID = 0054C3AA1C07E5C9004E4D74;
+					};
+					0054C3CE1C07E5CA004E4D74 = {
+						CreatedOnToolsVersion = 7.1.1;
+						DevelopmentTeam = M27U6W77DY;
+						TestTargetID = 0054C3AA1C07E5C9004E4D74;
+					};
+				};
+			};
+			buildConfigurationList = 0054C3A61C07E5C9004E4D74 /* Build configuration list for PBXProject "S-MixControl" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 0054C3A21C07E5C9004E4D74;
+			productRefGroup = 0054C3AC1C07E5CA004E4D74 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				0054C3AA1C07E5C9004E4D74 /* S-mixcontrol */,
+				0054C3C31C07E5CA004E4D74 /* S-MixControlTests */,
+				0054C3CE1C07E5CA004E4D74 /* S-MixControlUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		0054C3A91C07E5C9004E4D74 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0054C3BE1C07E5CA004E4D74 /* LaunchScreen.storyboard in Resources */,
+				0054C3BB1C07E5CA004E4D74 /* Assets.xcassets in Resources */,
+				0054C3B91C07E5CA004E4D74 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		0054C3C21C07E5CA004E4D74 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		0054C3CD1C07E5CA004E4D74 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		0054C3A71C07E5C9004E4D74 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				00711ABD1C104D090096BCBB /* SockerSever.m in Sources */,
+				001E18231C09D81D00048E7B /* AppDelegate.m in Sources */,
+				00E22DBF1C0DB6510061AA59 /* ConnectViewController.m in Sources */,
+				00FE080C1C0D772100A88295 /* GCDAsyncUdpSocket.m in Sources */,
+				001E18251C09D81D00048E7B /* ChangeViewController.m in Sources */,
+				001E18101C09D64C00048E7B /* SignalViewController.m in Sources */,
+				0054C3B01C07E5CA004E4D74 /* main.m in Sources */,
+				00FE080F1C0D89D000A88295 /* ConnectPort.mm in Sources */,
+				001E18241C09D81D00048E7B /* ViewController.m in Sources */,
+				00A2A9411C0FE4E300F277EB /* SignalValue.m in Sources */,
+				0B2CD59A1C55B85600767302 /* DataBaseHelp.m in Sources */,
+				00E22DC21C0DC0490061AA59 /* LoginViewController.m in Sources */,
+				0027C5061C197688001ED45D /* SubsenceViewController.m in Sources */,
+				0B0DCB4E1C2250B300A19551 /* NSArray+Emptyarray.m in Sources */,
+				001E18271C09D81D00048E7B /* ConseverViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		0054C3C01C07E5CA004E4D74 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0054C3C91C07E5CA004E4D74 /* S_MixControlTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		0054C3CB1C07E5CA004E4D74 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0054C3D41C07E5CA004E4D74 /* S_MixControlUITests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		0054C3C61C07E5CA004E4D74 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 0054C3AA1C07E5C9004E4D74 /* S-mixcontrol */;
+			targetProxy = 0054C3C51C07E5CA004E4D74 /* PBXContainerItemProxy */;
+		};
+		0054C3D11C07E5CA004E4D74 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 0054C3AA1C07E5C9004E4D74 /* S-mixcontrol */;
+			targetProxy = 0054C3D01C07E5CA004E4D74 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		0054C3B71C07E5CA004E4D74 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				0054C3B81C07E5CA004E4D74 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		0054C3BC1C07E5CA004E4D74 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				0054C3BD1C07E5CA004E4D74 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		0054C3D61C07E5CA004E4D74 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Beijing KENSENCE Technology Development CO., LTD. (6KFS25Y962)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Beijing KENSENCE Technology Development CO., LTD. (6KFS25Y962)";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				OTHER_LDFLAGS = "";
+				PROVISIONING_PROFILE = "7da4f86a-8f7c-479f-9e1b-70488a81145b";
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		0054C3D71C07E5CA004E4D74 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Beijing KENSENCE Technology Development CO., LTD. (6KFS25Y962)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Beijing KENSENCE Technology Development CO., LTD. (6KFS25Y962)";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_LDFLAGS = "";
+				PROVISIONING_PROFILE = "7da4f86a-8f7c-479f-9e1b-70488a81145b";
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		0054C3D91C07E5CA004E4D74 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD)";
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = NO;
+				ENABLE_BITCODE = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/S-MixControl/FramWork",
+				);
+				GCC_PREFIX_HEADER = "S-MixControl/CQHeader.pch";
+				INFOPLIST_FILE = "S-MixControl/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				ONLY_ACTIVE_ARCH = NO;
+				OTHER_LDFLAGS = "";
+				PRODUCT_BUNDLE_IDENTIFIER = "www.Kensence.com.S-MixControlStore";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				SKIP_INSTALL = NO;
+				TARGETED_DEVICE_FAMILY = 2;
+				USER_HEADER_SEARCH_PATHS = "";
+			};
+			name = Debug;
+		};
+		0054C3DA1C07E5CA004E4D74 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD)";
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = NO;
+				ENABLE_BITCODE = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/S-MixControl/FramWork",
+				);
+				GCC_PREFIX_HEADER = "S-MixControl/CQHeader.pch";
+				INFOPLIST_FILE = "S-MixControl/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				ONLY_ACTIVE_ARCH = NO;
+				OTHER_LDFLAGS = "";
+				PRODUCT_BUNDLE_IDENTIFIER = "www.Kensence.com.S-MixControlStore";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				SKIP_INSTALL = NO;
+				TARGETED_DEVICE_FAMILY = 2;
+				USER_HEADER_SEARCH_PATHS = "";
+			};
+			name = Release;
+		};
+		0054C3DC1C07E5CA004E4D74 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = "S-MixControlTests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "www.Kensence.com.S-MixControlTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/S-MixControl.app/S-MixControl";
+			};
+			name = Debug;
+		};
+		0054C3DD1C07E5CA004E4D74 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = "S-MixControlTests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "www.Kensence.com.S-MixControlTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/S-MixControl.app/S-MixControl";
+			};
+			name = Release;
+		};
+		0054C3DF1C07E5CA004E4D74 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = "S-MixControlUITests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "www.Kensence.com.S-MixControlUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = "S-MixControl";
+				USES_XCTRUNNER = YES;
+			};
+			name = Debug;
+		};
+		0054C3E01C07E5CA004E4D74 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = "S-MixControlUITests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "www.Kensence.com.S-MixControlUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = "S-MixControl";
+				USES_XCTRUNNER = YES;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		0054C3A61C07E5C9004E4D74 /* Build configuration list for PBXProject "S-MixControl" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0054C3D61C07E5CA004E4D74 /* Debug */,
+				0054C3D71C07E5CA004E4D74 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		0054C3D81C07E5CA004E4D74 /* Build configuration list for PBXNativeTarget "S-mixcontrol" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0054C3D91C07E5CA004E4D74 /* Debug */,
+				0054C3DA1C07E5CA004E4D74 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		0054C3DB1C07E5CA004E4D74 /* Build configuration list for PBXNativeTarget "S-MixControlTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0054C3DC1C07E5CA004E4D74 /* Debug */,
+				0054C3DD1C07E5CA004E4D74 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		0054C3DE1C07E5CA004E4D74 /* Build configuration list for PBXNativeTarget "S-MixControlUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0054C3DF1C07E5CA004E4D74 /* Debug */,
+				0054C3E01C07E5CA004E4D74 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 0054C3A31C07E5C9004E4D74 /* Project object */;
+}
