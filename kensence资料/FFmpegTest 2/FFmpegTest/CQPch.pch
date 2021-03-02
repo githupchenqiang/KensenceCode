@@ -1,0 +1,73 @@
+//
+//  CQPch.pch
+//  N-mix
+//
+//  Created by chenq@kensence.com on 16/6/11.
+//  Copyright © 2016年 times. All rights reserved.
+//
+
+#ifndef CQPch_pch
+#define CQPch_pch
+
+// Include any system framework and library headers here that should be included in all compilation units.
+// You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.
+
+#endif /* CQPch_pch */
+
+
+
+#define Localized(key) [[NSBundle bundleWithPath:[[NSBundle mainBundle] pathForResource:[NSString stringWithFormat:@"%@",[[NSUserDefaults standardUserDefaults] objectForKey:@"appLanguage"]] ofType:@"lproj"]] localizedStringForKey:(key) value:nil table:@"NSLocalizedLanguage"]
+
+
+
+#define FOURSCREEN ([UIScreen mainScreen].bounds.size.height == 1104)
+#define THREESCREEN ([UIScreen mainScreen].bounds.size.height == 667)
+
+
+#define Width4SuperView self.view.frame.size.width
+#define Height4SuperView self.view.frame.size.height
+
+#import "AppDelegate.h"
+/*
+ *背景颜色
+ *
+ *
+ */
+#define BacViewRGB [UIColor colorWithRed:101/255.0 green:139/255.0 blue:139/255.0 alpha:1]
+#define SenceNameRGB [UIColor colorWithRed:24/255.0 green:31/255.0 blue:49/255.0 alpha:0.7]
+#define CellRGB [UIColor colorWithRed:16/255.0 green:26/255.0 blue:39/255.0 alpha:1]
+#define WhiteColor [UIColor whiteColor]
+#define searchColor [UIColor colorWithRed:26/255.0 green:35/255.0 blue:41/255.0 alpha:1]
+#define TabbleColor [UIColor colorWithRed:42/255.0 green:50/255.0 blue:62/255.0 alpha:1]
+#define senderColor [UIColor colorWithRed:0/255.0 green:118/255.0 blue:255/255.0 alpha:1]
+#define MotifyColor [UIColor colorWithRed:93/255.0 green:164/255.0 blue:213/255.0 alpha:1]
+#define ScrollerColor [UIColor colorWithRed:25/255.0 green:32/255.0 blue:40/255.0 alpha:1]
+#define CusstomLabelColor [UIColor colorWithRed:50/255.0 green:60/255.0 blue:73/255.0 alpha:1]
+#define SenceSleleColor [UIColor colorWithRed:31/255.0 green:169/255.0 blue:235/255.0 alpha:1]
+#define BakeSrcColor [UIColor colorWithRed:43/255.0 green:50/255.0 blue:60/255.0 alpha:1]
+#define CustomPancolor [UIColor colorWithRed:121/255.0 green:126/255.0 blue:132/255.0 alpha:1]
+#define Meetingcolor [UIColor colorWithRed:16/255.0 green:26/255.0 blue:39/255.0 alpha:1]
+#define MeetingNameColor [UIColor colorWithRed:0/255.0 green:175/255.0 blue:235/255.0 alpha:1]
+#define TurnLeft [UIColor colorWithRed:32/255.0 green:38/255.0 blue:48/255.0 alpha:1]
+#define TextColor [UIColor colorWithRed:142/255.0 green:143/255.0 blue:150/255.0 alpha:1]
+#define SwitchColor [UIColor colorWithRed:4/255.0 green:172/255.0 blue:230/255.0 alpha:1]
+#define LightBtton [UIColor colorWithRed:40/255.0 green:48/255.0 blue:60/255.0 alpha:1]
+#define kensenceColor [UIColor colorWithRed:26/255.0 green:128/255.0 blue:187/255.0 alpha:1]
+
+
+#define deviceFont(device1)(device2)  if (device1) { \
+[UIFont systemFontOfSize:18]; \
+}else if (device2) \
+{ \
+    [UIFont systemFontOfSize:17]; \
+}
+
+
+//先登录：{"message":{"function":"user_login","user":{"name":"admin","password":"admin"}}}
+
+//{"message":{"function":"set_dev_ip","dev":{"ip":"1.1.1.1","netmask":"2.2.2.2","gateway":"3.3.3.3"
+//}}
+
+
+
+

@@ -1,0 +1,96 @@
+/* 
+  NSLocalizedLanguage.strings
+  N-mix
+
+  Created by chenq@kensence.com on 16/6/5.
+  Copyright © 2016年 times. All rights reserved.
+*/
+"连接"="Linked";
+"登录"="Longin";
+"场\n景\n列\n表"="S\ne\nn\nc\ne";
+"退出"="Exit";
+"保存"="Save";
+"保存并应用"="Save and Apply";
+"会场列表"="Venue List";
+"用户名"="UserName";
+"密码"="Passward";
+"端口号" = "Port";
+"IP地址" = "Adress";
+"解码器不存在" = "Decoder does not exist";
+"无解码器 不可操作" = "No decoder inoperable";
+"网络连接成功" = "Network connection is successful";
+"用户在别处登录" = "User Login elsewhere";
+"网络连接出错" = "Network connection error";
+"网络配置错误" = "Network configuration error";
+"连接成功" = "connection succeeded";
+"连接已存在" = "Connection already exists";
+"登录成功" = "login successful";
+"保存成功" = "Saved successfully";
+"默认" = "Defaults";
+"确定" = "OK";
+"解码器属性选择" = "Decoder Select Properties";
+"确定将可更改,取消将解除编码器" = "Determined to change with the lifting of the encoder canceled";
+"取消" = "Cancle";
+"当前已经是你想要的屏幕了" = "Currently have what you want the screen";
+"继续使用" = "Continue to use";
+"操作有误" = "Wrong operation";
+"未进行自定义不可操作" = "Not customize inoperable";
+"解码器达到上限不可在编辑" = "The decoder can not reach the upper limit in the edit";
+"当前无解码器" = "There are currently no decoder";
+"删除场景" = "Deleted scenes";
+"删除" = "Delete";
+"保存失败" = "Save failed";
+"无连接操作" = "No connection operation";
+"场景应用" = "Use Sennce";
+"应用还是删除" = "Use Or Delete";
+"应用" = "Use";
+"是否删除当前会场布局" = "Delete";
+"应急模式" = "Emergency mode";
+"指挥模式" = "Command mode";
+"会议模式" = "meeting model";
+"监控模式" = "Monitoring mode";
+"轮巡模式" = "Round tour mode";
+"登录..." = "Login...";
+"正在登录，稍后" = "Later is on";
+"网络连接错误，检查N-mix网络配置" = "Network connection error , check the network configuration N-mix";
+"场景应用失败" = "Failure Scenarios";
+"会场已被修改，连接失效" = "The venue has been modified, connection failure";
+"场景会场已不存在" = "Scene venue no longer exists";
+"是否将当前场景删除" = "Whether to delete the current scene";
+"无解码器，修改不可操作" = "No decoder modification inoperable";
+"修改名称" = "Edit name";
+"无解码器" = "No decoder";
+"灯光控制" = "LightControl";
+"场景列表" = "SenceList";
+"显示模式" = "DisplayMode";
+"视屏分发" = "VideoDistribution";
+"保存场景" = "SaveScene";
+"应用会场" = "Applications";
+"云媒体管理平台" = "Cloud media management platform";
+"打开相机" = "Camera";
+"从手机相册获取" = "Local album";
+"当前会场无在线解码器 请检查设备状态" = "No decoder";
+"窗帘开关" = "Curtain switch";
+"开" = "ON";
+"关" = "OFF";
+"灯光开关" = "Light switch";
+"输入源" = "Source";
+"呼叫网络连接失败" = "Call network connection failed";
+"删除将不可恢复" = "Delete can not be restored";
+"删除场景" = "Deleted";
+"修改名称" = "Edit name";
+"场景编辑" = "Scene Editor";
+"控制" = "Control";
+"方向调节" = "Direction";
+"音量调节" = "Volue";
+"输出格式" = "Format";
+"调焦" = "Zoom";
+"恢复预置位" = "Recover";
+"修改名称" = "Naming";
+"修改图片" = "Picture";
+"呼叫" = "Call";
+"挂断" = "Hangup";
+"确定要退出吗" = "Sure you want to exit";
+
+
+
