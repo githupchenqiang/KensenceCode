@@ -103,7 +103,7 @@
 //    _BackView.backgroundColor = WhiteColor;
     [self.view addSubview:_BackView];
     UIImageView *Log = [[UIImageView alloc]initWithFrame:CGRectMake(10, 5, 48, 48)];
-    UIImage *LogImage = [UIImage imageNamed:@"kens"];
+    UIImage *LogImage = [UIImage imageNamed:@"Lunch"];
     LogImage = [LogImage imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
     Log.image = LogImage;
     [_BackView addSubview:Log];
@@ -167,12 +167,11 @@
     
     _SButton.titleLabel.font = [UIFont systemFontOfSize:20];
     _SButton.tag = 2999;
-    _SButton.titleEdgeInsets = UIEdgeInsetsMake(0,_SButton.titleLabel.bounds.size.width - 80, 0, 0);
-
-          [_SButton setImage:[UIImage imageNamed:@"向下"] forState:UIControlStateNormal];
+    _SButton.titleEdgeInsets = UIEdgeInsetsMake(0,-100, 0, 0);
+    [_SButton setImage:[UIImage imageNamed:@"向下"] forState:UIControlStateNormal];
     CGSize commandbuttonsize = [_SButton.titleLabel.text sizeWithAttributes:@{NSFontAttributeName:[UIFont systemFontOfSize:19]}];
-    _SButton.imageEdgeInsets = UIEdgeInsetsMake(0,commandbuttonsize.width + 120, 0, -20);
-    [_SButton.imageView setFrame:CGRectMake(_SButton.frame.size.width - 20, 0, 30, 0)];
+    _SButton.imageEdgeInsets = UIEdgeInsetsMake(10,commandbuttonsize.width+100, 10, 0);
+    [_SButton.imageView setFrame:CGRectMake(_SButton.frame.size.width, 0, 30,0)];
     [_SButton addTarget:self action:@selector(ProButtonAction:) forControlEvents:UIControlEventTouchUpInside];
     [_BackView addSubview:_SButton];
     [_SButton mas_makeConstraints:^(MASConstraintMaker *make) {

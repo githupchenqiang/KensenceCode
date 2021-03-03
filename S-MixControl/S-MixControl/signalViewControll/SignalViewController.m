@@ -199,7 +199,6 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [SignalValue ShareValue].Integer = 80;
      self.view.backgroundColor = [UIColor blackColor];
     _BackView = [[UIView alloc]initWithFrame:[UIScreen mainScreen].bounds];
     _BackView.backgroundColor = [UIColor colorWithRed:24/255.0 green:33/255.0 blue:40/255.0 alpha:1];
@@ -492,7 +491,7 @@
              
             NSInteger num = number.integerValue;
             UIButton *button = [self.view viewWithTag:89999+num +115*[SignalValue ShareValue].ProCount];
-            button.backgroundColor = [UIColor whiteColor];
+//            button.backgroundColor = [UIColor whiteColor];
              button.selected = NO;
          }
     }];
@@ -513,7 +512,7 @@
                 NSString *title = [NSString stringWithFormat:@"%ld",(long)integer];
                 [button setTitle:title forState:UIControlStateNormal];
                 [[SignalValue ShareValue].InArray removeObject:num];
-                button.backgroundColor = [UIColor whiteColor];
+//                button.backgroundColor = [UIColor whiteColor];
                 unsigned char integer = [SignalValue ShareValue].Integer/9;
                 unsigned char tage = (char)[SignalValue ShareValue].ProCount;
                 
@@ -587,7 +586,7 @@
             NSNumber *num = [SignalValue ShareValue].OutArray[i];
             NSInteger tagnum = num.integerValue;
             UIButton *button = (UIButton *)[self.view viewWithTag:94999+tagnum+115*[SignalValue ShareValue].ProCount];
-            button.backgroundColor = [UIColor whiteColor];
+//            button.backgroundColor = [UIColor whiteColor];
             [_RemoveArray removeObject:num];
             
             
@@ -601,7 +600,7 @@
             NSNumber *number = obj;
             NSInteger integer = number.integerValue;
             UIButton *button = [self.view viewWithTag:94999+integer+115*[SignalValue ShareValue].ProCount];
-            button.backgroundColor = [UIColor whiteColor];
+//            button.backgroundColor = [UIColor whiteColor];
             button.selected = NO;
               NSString *Nstring = [NSString stringWithFormat:@"%ld",(long)integer+94999+115*[SignalValue ShareValue].ProCount];
             [[SignalValue ShareValue].OutArray removeObject:obj];

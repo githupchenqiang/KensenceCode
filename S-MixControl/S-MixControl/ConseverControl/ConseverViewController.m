@@ -124,12 +124,8 @@
                 [button setTitle:value forState:UIControlStateNormal];
             
             }
-           
-            
         }
-     
     }
- 
 }
 
 
@@ -234,7 +230,6 @@
             _Inlabel.backgroundColor = [UIColor clearColor];
             _Inlabel.layer.masksToBounds = YES;
             _Inlabel.layer.cornerRadius = 5;
-            
             _Inlabel.tag = 1200+i;
             
             NSNumber *num = [NSNumber numberWithInteger:_Inlabel.tag ];
@@ -247,7 +242,7 @@
             
             
             _Scroller = [[UIScrollView alloc]initWithFrame:CGRectMake(CGRectGetMaxX(_Inlabel.frame) * j +140, KScreenHeight/16 + KScreenHeight/10.6*i,KScreenWith/2,40)];
-            _Scroller.contentSize = CGSizeMake(ScrollerWith*[SignalValue ShareValue].Integer/7.2, 40);
+            _Scroller.contentSize = CGSizeMake(ScrollerWith * [SignalValue ShareValue].Integer/18 - 140, 40);
             _Scroller.tag = 1000+i;
             
             _Scroller.scrollEnabled = YES;
@@ -584,7 +579,7 @@
                 UILabel *text = [self.view viewWithTag:2000 + integer - 1];
                 NSString *string = [NSString stringWithFormat:@"%d",i + 1];
                 NSString *strVale = [NSString stringWithFormat:@"%ld",(long)(i+95000+115*[SignalValue ShareValue].ProCount)];
-            
+                text.textColor = UIColor.whiteColor;
                 
                 NSString *value = [[NSUserDefaults standardUserDefaults]objectForKey:strVale];
                 if (value == nil) {

@@ -227,7 +227,7 @@
             Inlabel.textAlignment = NSTextAlignmentCenter;
             Inlabel.textColor = [UIColor colorWithRed:14/255.0 green:108/255.0 blue:145/255.0 alpha:1];
             _OutScroller = [[UIScrollView alloc]initWithFrame:CGRectMake(CGRectGetMaxX(Inlabel.frame) * j +140, KScreenHeight/16 + KScreenHeight/10.6*i,KScreenWith/2,40)];
-            _OutScroller.contentSize = CGSizeMake(BackSrollerWith*[SignalValue ShareValue].Integer/7.2, 40);
+            _OutScroller.contentSize = CGSizeMake(BackSrollerWith*[SignalValue ShareValue].Integer/18-140, 40);
             _OutScroller.layer.borderColor = [UIColor blackColor].CGColor;
             _OutScroller.layer.borderWidth = 0.50f;
             _OutScroller.layer.masksToBounds = YES;
@@ -260,7 +260,7 @@
     if ([SignalValue ShareValue].Integer % 9 == 0) {
        _BackScroller.contentSize = CGSizeMake(BackSrollerWith,BackScrollerHight*[SignalValue ShareValue].Integer/9);
     }else{
-       _BackScroller.contentSize = CGSizeMake(BackSrollerWith,BackScrollerHight*([SignalValue ShareValue].Integer/9 +1));
+       _BackScroller.contentSize = CGSizeMake(BackSrollerWith,BackScrollerHight*([SignalValue ShareValue].Integer/9 + 1));
     }
     
     _BackScroller.showsVerticalScrollIndicator = NO;
