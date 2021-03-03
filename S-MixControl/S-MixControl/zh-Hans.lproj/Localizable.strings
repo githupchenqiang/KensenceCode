@@ -1,0 +1,90 @@
+/* 
+  Localizable.strings
+  S-MixControl
+
+  Created by AmpleSky on 2019/1/5.
+  Copyright © 2019年 KaiXingChuangDa. All rights reserved.
+*/
+
+
+//@"分辨率"
+//
+//@"色彩空间"
+//@"分辨率"
+"Login" = "登录";
+"TimeOut" = "超时";
+"SignalSwitch" = "信号切换";
+"About" = "关于我们";
+"SceneSwitch" = "场景切换";
+"SceneSave" = "场景保存";
+"Scene" = "场景";
+"Login..." = "登录...";
+"IP Adress" = "IP 地址";
+"Port" = "端口";
+"Input Error" = "输入有误";
+"Choose types of control" = "选择控制类型";
+"LinkError" = "连接有误";
+"cancle" = "取消";
+"Mixed matrix control system" = "混合矩阵控制系统";
+"Sure" = "确定";
+"Login success" = "登录成功";
+
+"product name：Control platform" = "产品名称：矩阵控制系统";
+"Version：1.0.1.64" = "版本：1.0.1.64";
+"Phone：+86-01082275130" = "电话：+86-01082275130";
+"E-Mail：info@kensence.com" = "邮箱：info@kensence.com";
+"MainPage：www.kensence.com" = "主页：www.kensence.com";
+"Address：ShengZhengBaoAnQuShiYanRoad" = "地址：深圳宝山区石岩路";
+
+"Save" = "保存";
+"Send..." = "发送...";
+"Timeout" = "超时";
+"Save Success" = "保存成功";
+"input Scene Name" = "输入场景名称";
+"Intput" = "输入";
+"Cancel" = "取消";
+"Sure"  ="确定";
+"Save" = "保存";
+"Input Scene Name" = "输出场景名称";
+"Input" = "输入";
+"Load" = "加载";
+"Send" = "发送";
+"timeout" = "超时";
+"load success" = "加载成功";
+"Output" = "输出";
+"Input Scene Name" = "输入场景名称";
+"The digital input" = "请输入数字";
+"OK" = "确定";
+"Digital input are not allowed" = "输入有误";
+"Please enter the letters" = "请输入字母";
+"Clear" = "清除";
+"Undo" = "返回";
+"OK" = "发送";
+"All" = "全选";
+"Send" ="发送";
+"分辨率" = "分辨率";
+"色彩空间" = "色彩空间";
+"分辨率" = "分辨率";
+"brightness" = "亮度";
+"contrast" = "对比度";
+"saturation" = "饱和度";
+"chroma" = "chroma";
+"The zoom" = "缩放";
+"positive" = "positive";
+"The horse" = "The horse";
+"H323Ip" = "H323Ip";
+"bandwidth 256 ~ 4000" = "带宽 256 ~ 4000";
+"call" = "拨打";
+"Hang up" = "挂断";
+"reset" = "重置";
+"Modify the name" = "修改名称";
+"named" = "名称";
+"IP input incorrect" = "IP 输入有误";
+"Hang up" = "挂断";
+"Input bandwidth value is too small Please enter the512~4000" = "输入带宽值太小请输入the512 ~ 4000";
+"Beyond the maximum input bandwidth Please enter the512~4000" = "超出了最大输入带宽请输入the512 ~ 4000";
+"IP input incorrect" = "IP输入不正确";
+"Hang up" = "挂断";
+"Call" = "拨打";
+"输入带宽值过小 请输入512~4000" = "输入带宽值过小 请输入512~4000";
+"输入带宽超出最大值 请输入512~4000" = "输入带宽超出最大值 请输入512~4000";
