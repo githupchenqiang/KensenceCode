@@ -60,7 +60,7 @@
     unsigned char integertag = [SignalValue ShareValue].Integer/9;
     unsigned char tage = (char)[SignalValue ShareValue].ProCount;
     [DataBaseHelp CreatTable];
-    [DataBaseHelp SelectTemp:integertag Type:tage];
+    [DataBaseHelp SelectIP:[SignalValue ShareValue].SignalIpStr Temp:integertag Type:tage];
     
     for (int i = 0; i < [SignalValue ShareValue].GetMessage.count; i++) {
         UILabel *input = (UILabel *)[self.view viewWithTag:1200+i];
@@ -110,9 +110,10 @@
     butImage = [butImage imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
     [button setBackgroundImage:butImage forState:UIControlStateNormal];
     
-    if ([SignalValue ShareValue].ProCount == 2) {
+    if ([SignalValue ShareValue].ProCount == 2 || [SignalValue ShareValue].ProCount) {
         [DataBaseHelp CreatTable];
-        [DataBaseHelp SelectTemp:integertag Type:tage];
+        
+        NSArray * array = [DataBaseHelp SelectIP:[SignalValue ShareValue].SignalIpStr Temp:integertag Type:tage];
         
         for (int i = 0; i < 12; i++) {
             NSInteger integer = 700+i;
@@ -138,7 +139,7 @@
     
     
     if (_dataArray == nil) {
-        _dataArray = [DataBaseHelp SelectTemp:temp Type:type];
+        _dataArray = [DataBaseHelp SelectIP:[SignalValue ShareValue].SignalIpStr Temp:temp Type:type];
         
     }
     
@@ -358,12 +359,12 @@
                 unsigned char tage = (char)[SignalValue ShareValue].ProCount;
                 
                 [DataBaseHelp CreatTable];
-                [DataBaseHelp DeleteWithTemp:integer type:tage Key:string];
-                [DataBaseHelp InsertIntoTemp:integer Type:tage Key:string Values:title];
+                [DataBaseHelp DeleteWithIP:[SignalValue ShareValue].SignalIpStr Temp:integer type:tage Key:string];
+                [DataBaseHelp InsertIntoIP:[SignalValue ShareValue].SignalIpStr Temp:integer Type:tage Key:string Values:title];
                 
                 [DataBaseHelp CreatTable];
-                [DataBaseHelp DeleteWithTemp:integer type:tage Key:Changestring];
-                [DataBaseHelp InsertIntoTemp:integer Type:tage Key:Changestring Values:title];
+                [DataBaseHelp DeleteWithIP:[SignalValue ShareValue].SignalIpStr Temp:integer type:tage Key:Changestring];
+                [DataBaseHelp InsertIntoIP:[SignalValue ShareValue].SignalIpStr Temp:integer Type:tage Key:Changestring Values:title];
                 
             }else if (_Intextfild.text.length >= 5){
                 
@@ -374,13 +375,13 @@
                 unsigned char tage = (char)[SignalValue ShareValue].ProCount;
                 
                 [DataBaseHelp CreatTable];
-                [DataBaseHelp DeleteWithTemp:integer type:tage Key:string];
-                [DataBaseHelp InsertIntoTemp:integer Type:tage Key:string Values:str];
+                [DataBaseHelp DeleteWithIP:[SignalValue ShareValue].SignalIpStr Temp:integer type:tage Key:string];
+                [DataBaseHelp InsertIntoIP:[SignalValue ShareValue].SignalIpStr Temp:integer Type:tage Key:string Values:str];
                 
                 //对场景切换的场景做相同的改动
                 [DataBaseHelp CreatTable];
-                [DataBaseHelp DeleteWithTemp:integer type:tage Key:Changestring];
-                [DataBaseHelp InsertIntoTemp:integer Type:tage Key:Changestring Values:str];
+                [DataBaseHelp DeleteWithIP:[SignalValue ShareValue].SignalIpStr Temp:integer type:tage Key:Changestring];
+                [DataBaseHelp InsertIntoIP:[SignalValue ShareValue].SignalIpStr Temp:integer Type:tage Key:Changestring Values:str];
      
             }else if (_Intextfild.text.length < 5 &&_Intextfild.text.length > 0)
             {
@@ -389,13 +390,13 @@
                 unsigned char integer = [SignalValue ShareValue].Integer/9;
                 unsigned char tage = (char)[SignalValue ShareValue].ProCount;
                 [DataBaseHelp CreatTable];
-                [DataBaseHelp DeleteWithTemp:integer type:tage Key:string];
-                [DataBaseHelp InsertIntoTemp:integer Type:tage Key:string Values:_Intextfild.text];
+                [DataBaseHelp DeleteWithIP:[SignalValue ShareValue].SignalIpStr Temp:integer type:tage Key:string];
+                [DataBaseHelp InsertIntoIP:[SignalValue ShareValue].SignalIpStr Temp:integer Type:tage Key:string Values:_Intextfild.text];
                 
                 //对场景切换的场景做相同的改动
                 [DataBaseHelp CreatTable];
-                [DataBaseHelp DeleteWithTemp:integer type:tage Key:Changestring];
-                [DataBaseHelp InsertIntoTemp:integer Type:tage Key:Changestring Values:_Intextfild.text];
+                [DataBaseHelp DeleteWithIP:[SignalValue ShareValue].SignalIpStr Temp:integer type:tage Key:Changestring];
+                [DataBaseHelp InsertIntoIP:[SignalValue ShareValue].SignalIpStr Temp:integer Type:tage Key:Changestring Values:_Intextfild.text];
             }
        
     }];

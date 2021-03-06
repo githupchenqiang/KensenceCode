@@ -84,6 +84,7 @@
 @property (nonatomic ,strong)UIView *BackView;
 @property (nonatomic ,strong)UIView *BottomView;
 @property (nonatomic ,strong)MBProgressHUD  *hud;
+@property (nonatomic,strong)NSString             *IPString;
 
 
 @end
@@ -106,8 +107,7 @@
     unsigned char tage = (char)[SignalValue ShareValue].ProCount;
     
     [DataBaseHelp CreatTable];
-    [DataBaseHelp SelectTemp:integertag Type:tage];
-     
+    [DataBaseHelp SelectIP:_IPString Temp:integertag Type:tage];
     
     _SenceInName = [NSUserDefaults standardUserDefaults];
     for (int i = 0; i < [SignalValue ShareValue].GetMessage.count; i++) {
@@ -179,8 +179,7 @@
         unsigned char tage = (char)[SignalValue ShareValue].ProCount;
         
         [DataBaseHelp CreatTable];
-        [DataBaseHelp SelectTemp:integer Type:tage];
-
+        [DataBaseHelp SelectIP:_IPString Temp:integer Type:tage];
     }
     
 }
@@ -199,6 +198,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    _IPString = [SignalValue ShareValue].SignalIpStr;
      self.view.backgroundColor = [UIColor blackColor];
     _BackView = [[UIView alloc]initWithFrame:[UIScreen mainScreen].bounds];
     _BackView.backgroundColor = [UIColor colorWithRed:24/255.0 green:33/255.0 blue:40/255.0 alpha:1];
@@ -517,8 +517,8 @@
                 unsigned char tage = (char)[SignalValue ShareValue].ProCount;
                 
                 [DataBaseHelp CreatTable];
-                [DataBaseHelp DeleteWithTemp:integer type:tage Key:string];
-                [DataBaseHelp InsertIntoTemp:integer Type:tage Key:string Values:title];
+                [DataBaseHelp DeleteWithIP:_IPString Temp:integer type:tage Key:string];
+                [DataBaseHelp InsertIntoIP:[SignalValue ShareValue].SignalIpStr Temp:integer Type:tage Key:string Values:title];
                 
             }else if (_Intextfild.text.length >= 5){
                
@@ -529,13 +529,10 @@
                unsigned char tage = (char)[SignalValue ShareValue].ProCount;
                 
                 [DataBaseHelp CreatTable];
-                [DataBaseHelp DeleteWithTemp:integer type:tage Key:string];
-                [DataBaseHelp InsertIntoTemp:integer Type:tage Key:string Values:str];
-                [DataBaseHelp SelectTemp:integer Type:tage];
-               
-                [DataBaseHelp SelectTemp:integer Type:tage];
+                [DataBaseHelp DeleteWithIP:_IPString Temp:integer type:tage Key:string];
+                [DataBaseHelp InsertIntoIP:[SignalValue ShareValue].SignalIpStr Temp:integer Type:tage Key:string Values:str];
+                [DataBaseHelp SelectIP:_IPString Temp:integer Type:tage];
 
-               
             }else if (_Intextfild.text.length < 5 &&_Intextfild.text.length > 0)
             {
                 [button setTitle:_Intextfild.text forState:UIControlStateNormal];
@@ -543,11 +540,10 @@
                 unsigned char integer = [SignalValue ShareValue].Integer/9;
                 unsigned char tage = (char)[SignalValue ShareValue].ProCount;
                 [DataBaseHelp CreatTable];
-                [DataBaseHelp DeleteWithTemp:integer type:tage Key:string];
-                [DataBaseHelp InsertIntoTemp:integer Type:tage Key:string Values:_Intextfild.text];
+                [DataBaseHelp DeleteWithIP:_IPString Temp:integer type:tage Key:string];
+                [DataBaseHelp InsertIntoIP:[SignalValue ShareValue].SignalIpStr Temp:integer Type:tage Key:string Values:_Intextfild.text];
                 
-       }
-            
+            }
            
         }];
        [[SignalValue ShareValue].InArray removeAllObjects];
@@ -613,8 +609,8 @@
                 unsigned char tage = (char)[SignalValue ShareValue].ProCount;
                 
                 [DataBaseHelp CreatTable];
-                [DataBaseHelp DeleteWithTemp:integertag type:tage Key:Nstring];
-                [DataBaseHelp InsertIntoTemp:integertag Type:tage Key:Nstring Values:[NSString stringWithFormat:@"%ld",(long)integer]];
+                [DataBaseHelp DeleteWithIP:_IPString Temp:integertag type:tage Key:Nstring];
+                [DataBaseHelp InsertIntoIP:_IPString Temp:integertag Type:tage Key:Nstring Values:[NSString stringWithFormat:@"%ld",(long)integer]];
                 [[SignalValue ShareValue].OutArray removeAllObjects];
                 
             }else if (_senceText.text.length >= 5){
@@ -626,10 +622,9 @@
                 
                 
                 [DataBaseHelp CreatTable];
-                [DataBaseHelp DeleteWithTemp:integertag type:tage Key:Nstring];
-                [DataBaseHelp InsertIntoTemp:integertag Type:tage Key:Nstring Values:str];
-                [DataBaseHelp SelectTemp:integertag Type:tage];
-                
+                [DataBaseHelp DeleteWithIP:_IPString Temp:integertag type:tage Key:Nstring];
+                [DataBaseHelp InsertIntoIP:_IPString Temp:integertag Type:tage Key:Nstring Values:str];
+                [DataBaseHelp SelectIP:_IPString Temp:integertag Type:tage];
                 [[SignalValue ShareValue].OutArray removeAllObjects];
               
             }else
@@ -640,8 +635,8 @@
                 unsigned char integertag = [SignalValue ShareValue].Integer/9;
                 unsigned char tage = (char)[SignalValue ShareValue].ProCount;
                 [DataBaseHelp CreatTable];
-                [DataBaseHelp DeleteWithTemp:integertag type:tage Key:Nstring];
-                [DataBaseHelp InsertIntoTemp:integertag Type:tage Key:Nstring Values:_senceText.text];
+                [DataBaseHelp DeleteWithIP:_IPString Temp:integertag type:tage Key:Nstring];
+                [DataBaseHelp InsertIntoIP:_IPString Temp:integertag Type:tage Key:Nstring Values:_senceText.text];
                 [[SignalValue ShareValue].OutArray removeAllObjects];
             }
        
@@ -1171,7 +1166,6 @@
     if ([SignalValue ShareValue].ProCount ==2) {
 //   
 //        unsigned char dobuf[512] = {0};
-//        
             for (int i = 0; i < _ProArray.count ; i++) {
             
                 NSNumber *num = _ProArray[i];
@@ -1230,9 +1224,7 @@
         [udpSocket sendData:data1 toHost:[SignalValue ShareValue].SignalIpStr port:[SignalValue ShareValue].SignalPort withTimeout:60 tag:544];
         [udpSocket bindToPort:[SignalValue ShareValue].SignalPort error:nil];
         [udpSocket receiveOnce:nil];
-        
     }
-
     
 }
     //选择所有的按钮

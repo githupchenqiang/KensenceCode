@@ -52,14 +52,14 @@
     Telephone.frame = CGRectMake(KscreenWidth/2, CGRectGetMaxY(version.frame)+10,  KscreenWidth/1.5,  KscreenHeight/14);
     Telephone.textColor = [UIColor colorWithRed:153/255.0 green:156/255.0 blue:158/255.0 alpha:1];
     Telephone.textAlignment = NSTextAlignmentLeft;
-    Telephone.text = NSLocalizedString(@"Phone：+86-01082275130",@"");
+    Telephone.text = NSLocalizedString(@"Phone：0755-27802825",@"");
     
     
     //邮件地址
     UILabel *Mail = [[UILabel alloc]init];
     Mail.frame = CGRectMake(KscreenWidth/2, CGRectGetMaxY(Telephone.frame)+10,  KscreenWidth/1.5, KscreenHeight/14);
     Mail.textColor = [UIColor colorWithRed:153/255.0 green:156/255.0 blue:158/255.0 alpha:1];
-    Mail.text = NSLocalizedString(@"E-Mail：info@kensence.com",@"");
+    Mail.text = NSLocalizedString(@"E-Mail：web@kensence.com",@"");
     Mail.textAlignment = NSTextAlignmentLeft;
     
     //主页

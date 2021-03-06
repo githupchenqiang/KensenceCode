@@ -151,8 +151,7 @@ static sqlite3 *db;
 
 +(void)CreatTable
 {
-    
-    
+
     //打开数据库
     //取到沙盒
     NSString *doc = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES)lastObject];
@@ -163,7 +162,7 @@ static sqlite3 *db;
     if (result == SQLITE_OK) {
         NSLog(@"数据库打开成功");
         //创建表
-        const char *sql = "CREATE TABLE IF NOT EXISTS t_name (id integer PRIMARY KEY AUTOINCREMENT,stemp integer NOT NULL , type integer NOT NULL , key text NOT NULL , svalue text NOT NULL);";
+        const char *sql = "CREATE TABLE IF NOT EXISTS t_name (id integer PRIMARY KEY AUTOINCREMENT,ip text NOT NULL,stemp integer NOT NULL , type integer NOT NULL , key text NOT NULL , svalue text NOT NULL);";
         char *erroMsg = NULL;
         sqlite3_exec(db, sql, NULL, NULL, &erroMsg);
         if (result == SQLITE_OK) {
@@ -181,10 +180,10 @@ static sqlite3 *db;
 
 }
 
-+(void)InsertIntoTemp:(int)temp Type:(int)type Key:(NSString *)key Values:(NSString *)values
++(void)InsertIntoIP:(NSString*)ip Temp:(int)temp Type:(int)type Key:(NSString *)key Values:(NSString *)values
 {
   
-    NSString *sql = [NSString stringWithFormat:@"INSERT INTO t_name (stemp,type,key,svalue) VALUES (%d,%d,'%@','%@');",temp,type,key,values];
+    NSString *sql = [NSString stringWithFormat:@"INSERT INTO t_name (ip,stemp,type,key,svalue) VALUES ('%@',%d,%d,'%@','%@');",ip,temp,type,key,values];
     char *erroMsg = NULL;
     sqlite3_exec(db, sql.UTF8String, NULL, NULL, &erroMsg);
     if (erroMsg) {
@@ -197,12 +196,13 @@ static sqlite3 *db;
 }
 
 
-+(NSArray *)SelectTemp:(int)temp Type:(int)type
++(NSArray *)SelectIP:(NSString *)ip Temp:(int)temp Type:(int)type
 {
     
     NSMutableArray *mutArra = nil;
     
-    NSString *sql = [NSString stringWithFormat:@"SELECT stemp,type,key,svalue FROM t_name WHERE stemp = %d and type = %d;",temp,type];
+    NSString *sql = [NSString stringWithFormat:@"SELECT ip, stemp,type,key,svalue FROM t_name WHERE ip = '%@' and stemp = %d and type = %d;",ip,temp,type];
+    NSLog(@"%@",sql);
     //sqlite3_stmt 用来取数据
     sqlite3_stmt *stmt = NULL;
     
@@ -213,10 +213,10 @@ static sqlite3 *db;
         //每一次sqlite3_step函数，就会取出下一条数据
         while(sqlite3_step(stmt) == SQLITE_ROW) {
             sqlite3_column_int(stmt, 1);
-            int temp = sqlite3_column_int(stmt, 0);
-            int type = sqlite3_column_int(stmt, 1);
-            const unsigned char *key = sqlite3_column_text(stmt, 2);
-            const unsigned char *svalue = sqlite3_column_text(stmt, 3);
+            int temp = sqlite3_column_int(stmt, 1);
+            int type = sqlite3_column_int(stmt, 2);
+            const unsigned char *key = sqlite3_column_text(stmt, 3);
+            const unsigned char *svalue = sqlite3_column_text(stmt, 4);
             
             NSString *string = [NSString stringWithUTF8String:(const char *)key];
             NSString *obj = [NSString stringWithUTF8String:(const char *)svalue];
@@ -237,10 +237,10 @@ static sqlite3 *db;
     
 }
 
-+(void)DeleteWithTemp:(int)temp type:(int)type Key:(NSString *)key
++(void)DeleteWithIP:(NSString *)ip Temp:(int)temp type:(int)type Key:(NSString *)key
 {
     
-    NSString *sql = [NSString stringWithFormat:@"DELETE FROM t_name WHERE stemp = %d and type = %d and key = '%@'",temp,type,key];
+    NSString *sql = [NSString stringWithFormat:@"DELETE FROM t_name WHERE ip = '%@' and stemp = %d and type = %d and key = '%@'",ip,temp,type,key];
     
     sqlite3_stmt *stmt = NULL;
     if (sqlite3_prepare_v2(db, sql.UTF8String, -1, &stmt, NULL) == SQLITE_OK) {

@@ -179,7 +179,6 @@
         make.left.equalTo(_text4port.mas_left).with.offset(0);
         make.right.equalTo(_text4port.mas_right).with.offset(0);
         make.height.mas_equalTo(52);
-        
     }];
 
 

@@ -803,8 +803,8 @@
             unsigned char tage = (char)[SignalValue ShareValue].ProCount;
             
             [DataBaseHelp CreatTable];
-            [DataBaseHelp DeleteWithTemp:integertag type:tage Key:Nstring];
-            [DataBaseHelp InsertIntoTemp:integertag Type:tage Key:Nstring Values:[NSString stringWithFormat:@"%ld",(long)integer]];
+            [DataBaseHelp DeleteWithIP:[SignalValue ShareValue].SignalIpStr Temp:integertag type:tage Key:Nstring];
+            [DataBaseHelp InsertIntoIP:[SignalValue ShareValue].SignalIpStr Temp:integertag Type:tage Key:Nstring Values:[NSString stringWithFormat:@"%ld",(long)integer]];
             [[SignalValue ShareValue].OutArray removeAllObjects];
             _NameString = [NSString stringWithFormat:@"%ld",(long)integer];
             
@@ -818,9 +818,9 @@
             
             
             [DataBaseHelp CreatTable];
-            [DataBaseHelp DeleteWithTemp:integertag type:tage Key:Nstring];
-            [DataBaseHelp InsertIntoTemp:integertag Type:tage Key:Nstring Values:str];
-            [DataBaseHelp SelectTemp:integertag Type:tage];
+            [DataBaseHelp DeleteWithIP:[SignalValue ShareValue].SignalIpStr Temp:integertag type:tage Key:Nstring];
+            [DataBaseHelp InsertIntoIP:[SignalValue ShareValue].SignalIpStr Temp:integertag Type:tage Key:Nstring Values:str];
+            [DataBaseHelp SelectIP:[SignalValue ShareValue].SignalIpStr Temp:integertag Type:tage];
           
             [[SignalValue ShareValue].OutArray removeAllObjects];
             _NameString = str;
@@ -836,8 +836,8 @@
             unsigned char integertag = [SignalValue ShareValue].Integer/9;
             unsigned char tage = (char)[SignalValue ShareValue].ProCount;
             [DataBaseHelp CreatTable];
-            [DataBaseHelp DeleteWithTemp:integertag type:tage Key:Nstring];
-            [DataBaseHelp InsertIntoTemp:integertag Type:tage Key:Nstring Values:string];
+            [DataBaseHelp DeleteWithIP:[SignalValue ShareValue].SignalIpStr Temp:integertag type:tage Key:Nstring];
+            [DataBaseHelp InsertIntoIP:[SignalValue ShareValue].SignalIpStr Temp:integertag Type:tage Key:Nstring Values:string];
             [[SignalValue ShareValue].OutArray removeAllObjects];
         }
         [[SignalValue ShareValue].OutArray removeAllObjects];

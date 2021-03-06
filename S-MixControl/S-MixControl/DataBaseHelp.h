@@ -29,12 +29,11 @@
 
 +(void)CreatTable;
 
-+(void)InsertIntoTemp:(int)temp Type:(int)type Key:(NSString *)key Values:(NSString *)values;
++(void)InsertIntoIP:(NSString*)ip Temp:(int)temp Type:(int)type Key:(NSString *)key Values:(NSString *)values;
 
++(NSArray *)SelectIP:(NSString *)ip Temp:(int)temp Type:(int)type;
 
-+(NSArray *)SelectTemp:(int)temp Type:(int)type;
-
-+(void)DeleteWithTemp:(int)temp type:(int)type Key:(NSString *)key;
++(void)DeleteWithIP:(NSString *)ip Temp:(int)temp type:(int)type Key:(NSString *)key;
 
 
 
