@@ -312,9 +312,9 @@
             [_Button addTarget:self action:@selector(SendMessage:) forControlEvents:UIControlEventTouchDown];
             
 //            if ([SignalValue ShareValue].ProCount == 2) {
-                UILongPressGestureRecognizer *LongPress = [[UILongPressGestureRecognizer alloc]initWithTarget:self action:@selector(ScenceLongPressAction:)];
-                [_Button addGestureRecognizer:LongPress];
-                LongPress.minimumPressDuration = 0.5;
+            UILongPressGestureRecognizer *LongPress = [[UILongPressGestureRecognizer alloc]initWithTarget:self action:@selector(ScenceLongPressAction:)];
+            [_Button addGestureRecognizer:LongPress];
+            LongPress.minimumPressDuration = 0.5;
 //            }
             [BacView addSubview:_Button];
         }

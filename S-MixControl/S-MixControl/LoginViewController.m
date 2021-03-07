@@ -315,7 +315,7 @@
         [SignalValue ShareValue].SignalIpStr = textField.text;
         NSString *str = portText.text;
         unsigned short utfString = [str integerValue];
-        [SignalValue ShareValue].SignalPort =utfString;
+        [SignalValue ShareValue].SignalPort = utfString;
 
     }else
     {

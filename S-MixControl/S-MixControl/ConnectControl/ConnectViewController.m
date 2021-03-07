@@ -43,7 +43,7 @@
     //版本号
     UILabel *version = [[UILabel alloc]init];
     version.frame = CGRectMake(KscreenWidth/2, CGRectGetMaxY(Ductlabel.frame)+10, KscreenWidth/1.5,  KscreenHeight/14);
-    version.text =NSLocalizedString(@"Version：1.0.1.64",@"");
+    version.text =NSLocalizedString(@"Version：1.0.2",@"");
     version.textColor = [UIColor colorWithRed:153/255.0 green:156/255.0 blue:158/255.0 alpha:1];
     version.textAlignment = NSTextAlignmentLeft;
     

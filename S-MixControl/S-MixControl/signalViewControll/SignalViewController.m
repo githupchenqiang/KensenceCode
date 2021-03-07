@@ -187,11 +187,10 @@
 
 - (NSArray *)Array
 {
-    
+
     if (_Array == nil) {
 
     }
-    
     return _Array;
  
 }
@@ -220,8 +219,7 @@
         make.height.mas_equalTo(KScreenHeight/1.5);
     }];
     
-    
-    
+
     _Aview = [[UIView alloc]init];
     _Aview.frame = CGRectMake(KScreenWith/1.9 + 10, KScreenHeight/8, KScreenWith/2.18, KScreenHeight/1.5);
     _Aview.layer.borderColor = [UIColor blackColor].CGColor;
@@ -598,7 +596,7 @@
             UIButton *button = [self.view viewWithTag:94999+integer+115*[SignalValue ShareValue].ProCount];
 //            button.backgroundColor = [UIColor whiteColor];
             button.selected = NO;
-              NSString *Nstring = [NSString stringWithFormat:@"%ld",(long)integer+94999+115*[SignalValue ShareValue].ProCount];
+            NSString *Nstring = [NSString stringWithFormat:@"%ld",(long)integer+94999+115*[SignalValue ShareValue].ProCount];
             [[SignalValue ShareValue].OutArray removeObject:obj];
             [_RemoveArray removeObject:obj];
             if (_senceText.text.length <= 0) {
@@ -880,7 +878,7 @@
             NSNumber *numStr = [NSNumber numberWithInteger:self.sendInt];
             [_UnArray addObject:numStr];//记录后来点击的按钮
             
-            
+
             _ProArray[_sendInt - 1] = _temp;
             [_RemoveArray addObject:numStr];//改了数组
             [[SignalValue ShareValue].OutArray addObject:numStr];
@@ -1188,8 +1186,7 @@
         Intag  = number.intValue;
     }
 
-       if ([SignalValue ShareValue].ProCount == 1) {
-        
+    if ([SignalValue ShareValue].ProCount == 1) {
         
         kice_t kic = signal_map_cmd(Intag, sendout, i , [SignalValue ShareValue].Integer);
         
@@ -1232,8 +1229,6 @@
 {
     [_UnArray removeAllObjects];
     [_RemoveArray removeAllObjects];
-
-    
     for (int i = 0; i < [SignalValue ShareValue].Integer; i++) {
         _OutButton = [self. view viewWithTag:95000+115*[SignalValue ShareValue].ProCount +i];
         if (_OutButton.selected== NO) {
@@ -1279,9 +1274,7 @@
             NSArray *Allarray = [Set allObjects];
             NSArray *sortArray = [Allarray sortedArrayUsingSelector:@selector(compare:)];
             _UnArray = [NSMutableArray arrayWithArray:sortArray];
-            
-         
-            
+
             _OutButton.selected= YES;
         }
         
