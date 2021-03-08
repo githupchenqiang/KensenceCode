@@ -567,7 +567,7 @@
 - (void)LongPressAction:(UILongPressGestureRecognizer *)longPress
 {
     if ([SignalValue ShareValue].ProCount == 1 || [SignalValue ShareValue].ProCount == 2) {
-    UIAlertController *alert = [UIAlertController alertControllerWithTitle:NSLocalizedString(@"input Name",@"") message:NSLocalizedString(@"The digital input",@"") preferredStyle:UIAlertControllerStyleAlert];
+    UIAlertController *alert = [UIAlertController alertControllerWithTitle:NSLocalizedString(@"input Name",@"") message:NSLocalizedString(@"The name input",@"") preferredStyle:UIAlertControllerStyleAlert];
     [alert addTextFieldWithConfigurationHandler:^(UITextField *textField) {
         
         textField.delegate = self;

@@ -54,7 +54,7 @@
 "load success" = "加载成功";
 "Output" = "输出";
 "Input Scene Name" = "输入场景名称";
-"The digital input" = "请输入数字";
+"The name input" = "请输入名称";
 "OK" = "确定";
 "Digital input are not allowed" = "输入有误";
 "Please enter the letters" = "请输入字母";
