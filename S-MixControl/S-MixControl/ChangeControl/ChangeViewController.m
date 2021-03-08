@@ -67,7 +67,7 @@
         UILabel *label = (UILabel *)[self.view viewWithTag:5000+i];
         NSString *str = [NSString stringWithFormat:@"%d",i+1];
         NSString *Key = [NSString stringWithFormat:@"%ld",(long)(i+90000+115*[SignalValue ShareValue].ProCount)];
-        NSString *value = [[NSUserDefaults standardUserDefaults]objectForKey:Key];
+        NSString *value = [[NSUserDefaults standardUserDefaults]objectForKey:[Key stringByAppendingString:[SignalValue ShareValue].SignalIpStr]];
          UIScrollView *scroller = (UIScrollView *)[self.view viewWithTag:500+i];
         [scroller setContentOffset:CGPointMake(0, 0)];
         
@@ -121,7 +121,7 @@
             NSInteger integer = 200+i;
             NSString *string = [NSString stringWithFormat:@"%ld",(long)integer];
             UIButton *button = (UIButton *)[self.view viewWithTag:integer];
-            NSString *value = [[NSUserDefaults standardUserDefaults]objectForKey:string];
+            NSString *value = [[NSUserDefaults standardUserDefaults]objectForKey:[string stringByAppendingString:[SignalValue ShareValue].SignalIpStr]];
             
             if (value != nil) {
                 [button setTitle:value forState:UIControlStateNormal];
@@ -132,10 +132,6 @@
         }
         
     }
-
-    
-    
-
 }
 
 - (void)viewWillDisappear:(BOOL)animated
@@ -633,7 +629,7 @@
                 UILabel *text = [self.view viewWithTag:3000 + integer - 1];
                 NSString *string = [NSString stringWithFormat:@"%d",i +1];
                 NSString *strVale = [NSString stringWithFormat:@"%ld",(long)(i+94999+1+115*[SignalValue ShareValue].ProCount)];
-                NSString *value = [[NSUserDefaults standardUserDefaults]objectForKey:strVale];
+                NSString *value = [[NSUserDefaults standardUserDefaults]objectForKey:[strVale stringByAppendingString:[SignalValue ShareValue].SignalIpStr]];
                 if (value == nil) {
                     NSString *stringwe = text.text;
                     str = [NSString stringWithFormat:@"%@ %@,",stringwe ,string];
@@ -641,7 +637,7 @@
                 }else
                 {
                     NSString *textString = text.text;
-                    NSString *stringValue = [[NSUserDefaults standardUserDefaults]objectForKey:strVale];
+                    NSString *stringValue = [[NSUserDefaults standardUserDefaults]objectForKey:[strVale stringByAppendingString:[SignalValue ShareValue].SignalIpStr]];
                     str = [NSString stringWithFormat:@"%@ %@,",textString,stringValue];
                     text.text = str;
                 }
@@ -683,7 +679,7 @@
                 UILabel *text = [self.view viewWithTag:3000 + integer - 1];
                 NSString *string = [NSString stringWithFormat:@"%d",i +1];
                 NSString *strVale = [NSString stringWithFormat:@"%ld",(long)(i+94999+1+115*[SignalValue ShareValue].ProCount)];
-                NSString *value = [[NSUserDefaults standardUserDefaults]objectForKey:strVale];
+                NSString *value = [[NSUserDefaults standardUserDefaults]objectForKey:[strVale stringByAppendingString:[SignalValue ShareValue].SignalIpStr]];
                 if (value == nil) {
                     NSString *stringwe = text.text;
                     str = [NSString stringWithFormat:@"%@ %@,",stringwe ,string];
@@ -691,7 +687,7 @@
                 }else
                 {
                     NSString *textString = text.text;
-                    NSString *stringValue = [[NSUserDefaults standardUserDefaults]objectForKey:strVale];
+                    NSString *stringValue = [[NSUserDefaults standardUserDefaults]objectForKey:[strVale stringByAppendingString:[SignalValue ShareValue].SignalIpStr]];
                     str = [NSString stringWithFormat:@"%@ %@,",textString,stringValue];
                     text.text = str;
                 }

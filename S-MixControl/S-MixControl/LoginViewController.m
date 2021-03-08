@@ -60,12 +60,12 @@
     
     if (inte == 2) {
         UIButton *button = (UIButton *)[self.view viewWithTag:2999];
-        [button setTitle:NSLocalizedString(@"S-MixPro",@"") forState:UIControlStateNormal];
+        [button setTitle:NSLocalizedString(@"S-MIX-PRO/SMC",@"") forState:UIControlStateNormal];
         [SignalValue ShareValue].ProCount = 2;
         
     }else if (inte == 1){
         UIButton *button = (UIButton *)[self.view viewWithTag:2998];
-          [button setTitle:@"S-Mix" forState:UIControlStateNormal];
+          [button setTitle:@"S-MIX-E" forState:UIControlStateNormal];
         [SignalValue ShareValue].ProCount = 1;
     }
 }
@@ -150,10 +150,10 @@
     _SButton = [UIButton buttonWithType:UIButtonTypeSystem];
     _SButton.frame = CGRectMake(0, CGRectGetMaxY(_text4port.frame)+20,BackKscreenWith/2, 52);
     if (inte == 1) {
-        [_SButton setTitle:@"S-Mix" forState:UIControlStateNormal];
+        [_SButton setTitle:@"S-MIX-E" forState:UIControlStateNormal];
     }else if (inte == 2)
     {
-       [_SButton setTitle:@"S-MixPro" forState:UIControlStateNormal];
+       [_SButton setTitle:@"S-MIX-PRO/SMC" forState:UIControlStateNormal];
     }else
     {
        [_SButton setTitle:NSLocalizedString(@"Choose types of control",@"") forState:UIControlStateNormal];
@@ -167,10 +167,10 @@
     
     _SButton.titleLabel.font = [UIFont systemFontOfSize:20];
     _SButton.tag = 2999;
-    _SButton.titleEdgeInsets = UIEdgeInsetsMake(0,-100, 0, 0);
+    _SButton.titleEdgeInsets = UIEdgeInsetsMake(0,-150, 0, 0);
     [_SButton setImage:[UIImage imageNamed:@"向下"] forState:UIControlStateNormal];
     CGSize commandbuttonsize = [_SButton.titleLabel.text sizeWithAttributes:@{NSFontAttributeName:[UIFont systemFontOfSize:19]}];
-    _SButton.imageEdgeInsets = UIEdgeInsetsMake(10,commandbuttonsize.width+100, 10, 0);
+    _SButton.imageEdgeInsets = UIEdgeInsetsMake(10,commandbuttonsize.width+150, 10, 0);
     [_SButton.imageView setFrame:CGRectMake(_SButton.frame.size.width, 0, 30,0)];
     [_SButton addTarget:self action:@selector(ProButtonAction:) forControlEvents:UIControlEventTouchUpInside];
     [_BackView addSubview:_SButton];
@@ -216,7 +216,7 @@
         _isChoose = YES;
     UIButton *PRoButton = [UIButton buttonWithType:UIButtonTypeSystem];
     PRoButton.frame = CGRectMake(0, CGRectGetMaxY(_text4port.frame)+20,BackKscreenWith/2, 52);
-    [PRoButton setTitle:@"S-Mix" forState:UIControlStateNormal];
+    [PRoButton setTitle:@"S-MIX-E" forState:UIControlStateNormal];
     [PRoButton setTitleColor:WhiteColor forState:UIControlStateNormal];
     PRoButton.backgroundColor = WhiteColor;
 //    PRoButton.layer.cornerRadius = 7;
@@ -237,7 +237,7 @@
     
     UIButton *SMButton = [UIButton buttonWithType:UIButtonTypeSystem];
     SMButton.frame = CGRectMake(0, CGRectGetMaxY(_text4port.frame)+20,BackKscreenWith/2, 52);
-    [SMButton setTitle:@"S-MixPro" forState:UIControlStateNormal];
+    [SMButton setTitle:@"S-MIX-PRO/SMC" forState:UIControlStateNormal];
     [SMButton setTitleColor:WhiteColor forState:UIControlStateNormal];
     SMButton.backgroundColor = WhiteColor;
 //    SMButton.layer.cornerRadius = 7;
@@ -262,7 +262,7 @@
 - (void)ProBUtton:(UIButton *)sender
 {
     UIButton *button = (UIButton *)[self.view viewWithTag:2999];
-    [button setTitle:@"S-Mix" forState:UIControlStateNormal];
+    [button setTitle:@"S-MIX-E" forState:UIControlStateNormal];
     [SignalValue ShareValue].ProCount = 1;
     NSString *strin =[NSString stringWithFormat:@"%d",1];
     [_default setObject:strin forKey:@"select"];
@@ -279,7 +279,7 @@
 {
     _isChoose = NO;
     UIButton *button = (UIButton *)[self.view viewWithTag:2999];
-    [button setTitle:@"S-MixPro" forState:UIControlStateNormal];
+    [button setTitle:@"S-MIX-PRO/SMC" forState:UIControlStateNormal];
     [SignalValue ShareValue].ProCount = 2;
     NSString *strin =[NSString stringWithFormat:@"%d",2];
     [_default setObject:strin forKey:@"select"];

@@ -66,7 +66,7 @@
         UILabel *input = (UILabel *)[self.view viewWithTag:1200+i];
         NSString *str = [NSString stringWithFormat:@"%d",i+1];
         NSString *Key = [NSString stringWithFormat:@"%ld",(long)(i+90000+115*[SignalValue ShareValue].ProCount)];
-        NSString *value = [[NSUserDefaults standardUserDefaults]objectForKey:Key];
+        NSString *value = [[NSUserDefaults standardUserDefaults]objectForKey:[Key stringByAppendingString:[SignalValue ShareValue].SignalIpStr]];
         UIScrollView *scroller = [self.view viewWithTag:1000+i];
         [scroller setContentOffset:CGPointMake(0, 0)];
         if (value != nil) {
@@ -119,7 +119,7 @@
             NSInteger integer = 700+i;
             NSString *string = [NSString stringWithFormat:@"%ld",(long)integer];
             UIButton *button = (UIButton *)[self.view viewWithTag:integer];
-            NSString *value = [[NSUserDefaults standardUserDefaults]objectForKey:string];
+            NSString *value = [[NSUserDefaults standardUserDefaults]objectForKey:[string stringByAppendingString:[SignalValue ShareValue].SignalIpStr]];
             
             if (value != nil) {
                 [button setTitle:value forState:UIControlStateNormal];
@@ -582,7 +582,7 @@
                 NSString *strVale = [NSString stringWithFormat:@"%ld",(long)(i+95000+115*[SignalValue ShareValue].ProCount)];
                 text.textColor = UIColor.whiteColor;
                 
-                NSString *value = [[NSUserDefaults standardUserDefaults]objectForKey:strVale];
+                NSString *value = [[NSUserDefaults standardUserDefaults]objectForKey:[strVale stringByAppendingString:[SignalValue ShareValue].SignalIpStr]];
                 if (value == nil) {
                     NSString *stringwe = text.text;
                     str = [NSString stringWithFormat:@"%@ %@,",stringwe ,string];
@@ -590,7 +590,7 @@
                 }else
                 {
                     NSString *textString = text.text;
-                    NSString *stringValue = [[NSUserDefaults standardUserDefaults]objectForKey:strVale];
+                    NSString *stringValue = [[NSUserDefaults standardUserDefaults]objectForKey:[strVale stringByAppendingString:[SignalValue ShareValue].SignalIpStr]];
                     str = [NSString stringWithFormat:@"%@ %@,",textString,stringValue];
                     text.text = str;
                 }
@@ -632,7 +632,7 @@
                 
                 NSString *string = [NSString stringWithFormat:@"%d",i + 1];
                 NSString *strVale = [NSString stringWithFormat:@"%ld",(long)(i+95000+115*[SignalValue ShareValue].ProCount)];
-                NSString *value = [[NSUserDefaults standardUserDefaults]objectForKey:strVale];
+                NSString *value = [[NSUserDefaults standardUserDefaults]objectForKey:[strVale stringByAppendingString:[SignalValue ShareValue].SignalIpStr]];
             if (value == nil) {
                     NSString *stringwe = text.text;
                     str = [NSString stringWithFormat:@"%@ %@,",stringwe ,string];
@@ -640,7 +640,7 @@
                 }else
                 {
                     NSString *textString = text.text;
-                    NSString *stringValue = [[NSUserDefaults standardUserDefaults]objectForKey:strVale];
+                    NSString *stringValue = [[NSUserDefaults standardUserDefaults]objectForKey:[strVale stringByAppendingString:[SignalValue ShareValue].SignalIpStr]];
                     str = [NSString stringWithFormat:@"%@ %@,",textString,stringValue];
                     text.text = str;
                 }

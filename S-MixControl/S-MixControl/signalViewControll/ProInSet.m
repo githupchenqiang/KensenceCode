@@ -15,7 +15,7 @@
 #import "ProInTableViewController.h"
 #import "Masonry.h"
 #import "DataSqlite.h"
-
+#import <objc/runtime.h>
 #define KscWith    self.view.frame.size.width
 #define KscHeight  self.view.frame.size.height
 #define WhitColor [UIColor whiteColor]
@@ -290,8 +290,12 @@
     _IPText = [[UITextField alloc]initWithFrame:CGRectMake(0, 0, 0, 0)];
     _IPText.placeholder = @"H323Ip";
     _IPText.text = [SignalValue ShareValue].IPstring;
-    [_IPText setValue:[UIColor colorWithRed:42/255.0 green:50/255.0 blue:62/255.0 alpha:1] forKeyPath:@"_placeholderLabel.textColor"];
-    [_IPText setValue:[UIFont boldSystemFontOfSize:16] forKeyPath:@"_placeholderLabel.font"];
+    
+    Ivar IPTextIvar =  class_getInstanceVariable([UITextField class], "_placeholderLabel");
+    UILabel *ipTextPlacehold = object_getIvar(self.IPText, IPTextIvar);
+    ipTextPlacehold.textColor = [UIColor colorWithRed:42/255.0 green:50/255.0 blue:62/255.0 alpha:1];
+    ipTextPlacehold.font =[UIFont boldSystemFontOfSize:16];
+    
     _IPText.textColor = WhitColor;
     [IpImageView addSubview:_IPText];
     [_IPText mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -318,8 +322,12 @@
     _valeText = [[UITextField alloc]initWithFrame:CGRectMake(0, 0, 0, 0)];
     _valeText.placeholder = @"带宽 256 ~ 4000";
     _valeText.text =[SignalValue ShareValue].ValueString;
-    [_valeText setValue:[UIColor colorWithRed:42/255.0 green:50/255.0 blue:62/255.0 alpha:1] forKeyPath:@"_placeholderLabel.textColor"];
-    [_valeText setValue:[UIFont boldSystemFontOfSize:16] forKeyPath:@"_placeholderLabel.font"];
+    
+    Ivar valeIvar =  class_getInstanceVariable([UITextField class], "_placeholderLabel");
+    UILabel *valeTextPlacehold = object_getIvar(self.valeText, valeIvar);
+    valeTextPlacehold.textColor = [UIColor colorWithRed:42/255.0 green:50/255.0 blue:62/255.0 alpha:1];
+    valeTextPlacehold.font =[UIFont boldSystemFontOfSize:16];
+    
     _valeText.textColor = WhitColor;
     [VAlueImageView addSubview:_valeText];
     [_valeText mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -391,8 +399,13 @@
     _Nametext.tag = 133333;
     _Nametext.delegate = self;
     _Nametext.placeholder = @"Modify the name";
-    [_Nametext setValue:[UIColor colorWithRed:42/255.0 green:50/255.0 blue:62/255.0 alpha:1] forKeyPath:@"_placeholderLabel.textColor"];
-    [_Nametext setValue:[UIFont boldSystemFontOfSize:16] forKeyPath:@"_placeholderLabel.font"];
+    
+    
+    Ivar nameIvar =  class_getInstanceVariable([UITextField class], "_placeholderLabel");
+    UILabel *nameTextPlacehold = object_getIvar(self.Nametext, nameIvar);
+    nameTextPlacehold.textColor = [UIColor colorWithRed:42/255.0 green:50/255.0 blue:62/255.0 alpha:1];
+    nameTextPlacehold.font =[UIFont boldSystemFontOfSize:16];
+    
     _Nametext.textColor = WhitColor;
     [_InAview addSubview:_Nametext];
     [_Nametext mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -714,9 +727,6 @@
             [DataBaseHelp DeleteWithIP:[SignalValue ShareValue].SignalIpStr Temp:integer type:tage Key:string];
             [DataBaseHelp InsertIntoIP:[SignalValue ShareValue].SignalIpStr Temp:integer Type:tage Key:string Values:str];
             [DataBaseHelp SelectIP:[SignalValue ShareValue].SignalIpStr Temp:integer Type:tage];
-            [DataBaseHelp SelectIP:[SignalValue ShareValue].SignalIpStr Temp:integer Type:tage];
-            
-   
             
         }else if (Instring.length < 5 &&Instring.length > 0)
         {
@@ -725,6 +735,7 @@
             _Namestring = Instring;
             unsigned char integer = [SignalValue ShareValue].Integer/9;
             unsigned char tage = (char)[SignalValue ShareValue].ProCount;
+            
             [DataBaseHelp CreatTable];
             [DataBaseHelp DeleteWithIP:[SignalValue ShareValue].SignalIpStr Temp:integer type:tage Key:string];
             [DataBaseHelp InsertIntoIP:[SignalValue ShareValue].SignalIpStr Temp:integer Type:tage Key:string Values:Instring];

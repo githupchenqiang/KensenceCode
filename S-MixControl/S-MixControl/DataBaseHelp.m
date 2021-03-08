@@ -198,7 +198,7 @@ static sqlite3 *db;
 
 +(NSArray *)SelectIP:(NSString *)ip Temp:(int)temp Type:(int)type
 {
-    
+    //ip = @"10.100.86.21";
     NSMutableArray *mutArra = nil;
     
     NSString *sql = [NSString stringWithFormat:@"SELECT ip, stemp,type,key,svalue FROM t_name WHERE ip = '%@' and stemp = %d and type = %d;",ip,temp,type];
@@ -219,13 +219,14 @@ static sqlite3 *db;
             const unsigned char *svalue = sqlite3_column_text(stmt, 4);
             
             NSString *string = [NSString stringWithUTF8String:(const char *)key];
+            string = [string stringByAppendingString:ip];
             NSString *obj = [NSString stringWithUTF8String:(const char *)svalue];
        
             [[NSUserDefaults standardUserDefaults]removeObjectForKey:string];
             
             [[NSUserDefaults standardUserDefaults]setObject:obj forKey:string];
            
-          
+        
             printf("%d  %d %s %s\n",temp,type,key,svalue);
         }
     }else

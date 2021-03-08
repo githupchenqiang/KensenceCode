@@ -14,7 +14,7 @@
 #import "DataBaseHelp.h"
 #import "Masonry.h"
 #import "DataSqlite.h"
-
+#import <objc/runtime.h>
 #import "SetTableViewController.h"
 #define KscWith    self.view.frame.size.width
 #define KscHeight  self.view.frame.size.height
@@ -331,8 +331,12 @@
     _IPText = [[UITextField alloc]initWithFrame:CGRectMake(0, 0, 0, 0)];
     _IPText.placeholder = NSLocalizedString(@"H323Ip",@"");
     _IPText.text = [SignalValue ShareValue].IPstring;
-    [_IPText setValue:[UIColor colorWithRed:42/255.0 green:50/255.0 blue:62/255.0 alpha:1] forKeyPath:@"_placeholderLabel.textColor"];
-    [_IPText setValue:[UIFont boldSystemFontOfSize:16] forKeyPath:@"_placeholderLabel.font"];
+
+    Ivar ivar =  class_getInstanceVariable([UITextField class], "_placeholderLabel");
+    UILabel *placeholderLabel = object_getIvar(self.IPText, ivar);
+    placeholderLabel.textColor = [UIColor colorWithRed:42/255.0 green:50/255.0 blue:62/255.0 alpha:1];
+    placeholderLabel.font =[UIFont boldSystemFontOfSize:16];
+
     _IPText.textColor = WhitColor;
     [IpImageView addSubview:_IPText];
     [_IPText mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -358,8 +362,11 @@
     _valeText = [[UITextField alloc]initWithFrame:CGRectMake(0, 0, 0, 0)];
     _valeText.placeholder = NSLocalizedString(@"bandwidth 256 ~ 4000",@"");
     _valeText.text = [SignalValue ShareValue].ValueString;
-    [_valeText setValue:[UIColor colorWithRed:42/255.0 green:50/255.0 blue:62/255.0 alpha:1] forKeyPath:@"_placeholderLabel.textColor"];
-    [_valeText setValue:[UIFont boldSystemFontOfSize:16] forKeyPath:@"_placeholderLabel.font"];
+    Ivar valeTextivar =  class_getInstanceVariable([UITextField class], "_placeholderLabel");
+    UILabel *_valeTextPlacehold = object_getIvar(self.valeText, valeTextivar);
+    _valeTextPlacehold.textColor = [UIColor colorWithRed:42/255.0 green:50/255.0 blue:62/255.0 alpha:1];
+    _valeTextPlacehold.font =[UIFont boldSystemFontOfSize:16];
+    
     _valeText.textColor = WhitColor;
     [VAlueImageView addSubview:_valeText];
     [_valeText mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -432,8 +439,11 @@
     _Nametext.tag = 100000;
     _Nametext.delegate = self;
     _Nametext.placeholder = NSLocalizedString(@"Modify the name",@"");
-    [_Nametext setValue:[UIColor colorWithRed:42/255.0 green:50/255.0 blue:62/255.0 alpha:1] forKeyPath:@"_placeholderLabel.textColor"];
-    [_Nametext setValue:[UIFont boldSystemFontOfSize:16] forKeyPath:@"_placeholderLabel.font"];
+    Ivar NametextIvar =  class_getInstanceVariable([UITextField class], "_placeholderLabel");
+    UILabel *nameTextPlacehold = object_getIvar(self.Nametext, NametextIvar);
+    nameTextPlacehold.textColor = [UIColor colorWithRed:42/255.0 green:50/255.0 blue:62/255.0 alpha:1];
+    nameTextPlacehold.font =[UIFont boldSystemFontOfSize:16];
+    
      _Nametext.textColor = WhitColor;
     [_Aview addSubview:_Nametext];
     [_Nametext mas_makeConstraints:^(MASConstraintMaker *make) {

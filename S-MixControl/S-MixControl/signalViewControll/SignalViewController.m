@@ -113,7 +113,7 @@
     for (int i = 0; i < [SignalValue ShareValue].GetMessage.count; i++) {
           UIButton *inButton = [self.view viewWithTag:90000+115*[SignalValue ShareValue].ProCount+i];
         NSString *Instr = [NSString stringWithFormat:@"%ld",(long)(i+90000+115*[SignalValue ShareValue].ProCount)];
-         NSString *Inname = [_SenceInName objectForKey:Instr];
+         NSString *Inname = [_SenceInName objectForKey:[Instr stringByAppendingString:[SignalValue ShareValue].SignalIpStr]];
         if (Inname == nil) {
             NSString *count = [NSString stringWithFormat:@"%d",i+1];
             [inButton setTitle:count forState:UIControlStateNormal];
@@ -128,7 +128,7 @@
       
         NSString *outstr = [NSString stringWithFormat:@"%ld",(long)(i+95000+115*[SignalValue ShareValue].ProCount)];
         
-        NSString *nameStr = [_senceName objectForKey:outstr];
+        NSString *nameStr = [_senceName objectForKey:[outstr stringByAppendingString:[SignalValue ShareValue].SignalIpStr]];
        
         if (nameStr == nil) {
             NSString *CountString = [NSString stringWithFormat:@"%d",i+1];
@@ -138,7 +138,7 @@
         }else
         {
             [button setTitle:nameStr forState:UIControlStateNormal];
- }
+        }
     }
    
 }
@@ -475,8 +475,8 @@
 - (void)InPressAction:(UILongPressGestureRecognizer *)gesture
 {
     
-    if ([SignalValue ShareValue].ProCount == 1) {
-    UIAlertController *alert = [UIAlertController alertControllerWithTitle:NSLocalizedString(@"Input Scene Name",@"") message:NSLocalizedString(@"Input",@"") preferredStyle:UIAlertControllerStyleAlert];
+    if ([SignalValue ShareValue].ProCount == 1 || [SignalValue ShareValue].ProCount == 2) {
+    UIAlertController *alert = [UIAlertController alertControllerWithTitle:NSLocalizedString(@"input Name",@"") message:NSLocalizedString(@"Input",@"") preferredStyle:UIAlertControllerStyleAlert];
     [alert addTextFieldWithConfigurationHandler:^(UITextField *textField) {
         // 可以在这里对textfield进行定制，例如改变背景色
         //textField.backgroundColor = [UIColor orangeColor];
@@ -553,6 +553,7 @@
     [self presentViewController:alert animated:YES completion:nil];
         
     }else if ([SignalValue ShareValue].ProCount == 2){
+        return;
         ProInSet *set = [ProInSet new];
        set.modalTransitionStyle = UIModalTransitionStyleCoverVertical;
         set.modalPresentationStyle = UIModalPresentationFormSheet;
@@ -565,8 +566,8 @@
 #pragma mark ===输出的执行事件======
 - (void)LongPressAction:(UILongPressGestureRecognizer *)longPress
 {
-    if ([SignalValue ShareValue].ProCount == 1) {
-    UIAlertController *alert = [UIAlertController alertControllerWithTitle:NSLocalizedString(@"Input Scene Name",@"") message:NSLocalizedString(@"The digital input",@"") preferredStyle:UIAlertControllerStyleAlert];
+    if ([SignalValue ShareValue].ProCount == 1 || [SignalValue ShareValue].ProCount == 2) {
+    UIAlertController *alert = [UIAlertController alertControllerWithTitle:NSLocalizedString(@"input Name",@"") message:NSLocalizedString(@"The digital input",@"") preferredStyle:UIAlertControllerStyleAlert];
     [alert addTextFieldWithConfigurationHandler:^(UITextField *textField) {
         
         textField.delegate = self;
@@ -650,6 +651,7 @@
     }else if ([SignalValue ShareValue].ProCount == 2 && [SignalValue ShareValue].OutArray != nil)
     
     {
+        return;
         ProSetView  *pro = [ProSetView new];
         pro.modalTransitionStyle = UIModalTransitionStyleCoverVertical;
         pro.modalPresentationStyle = UIModalPresentationFormSheet;
@@ -1131,98 +1133,98 @@
 #pragma mark ===发送指令====
 - (void)SendMessage:(UIButton *)Send
 {
-    [_SelectArray removeAllObjects];
+        [_SelectArray removeAllObjects];
 
-    dispatch_async(dispatch_get_main_queue(), ^{
-        self.hud = [MBProgressHUD showHUDAddedTo:[UIApplication sharedApplication].keyWindow animated:YES];
-        self.hud.activityIndicatorColor = [UIColor colorWithRed:246/255.0 green:8/255.0 blue:142/255.0 alpha:1];
-        self.hud.tintColor = [UIColor whiteColor];
-        self.hud.mode = MBProgressHUDModeIndeterminate;
-        self.hud.minSize = CGSizeMake(50, 50);
-        self.hud.label.text = NSLocalizedString(@"Send",@"");
-        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-            self.hud.label.text = NSLocalizedString(@"TimeOut",@"");
-             self.hud.hidden = YES;
+        dispatch_async(dispatch_get_main_queue(), ^{
+            self.hud = [MBProgressHUD showHUDAddedTo:[UIApplication sharedApplication].keyWindow animated:YES];
+            self.hud.activityIndicatorColor = [UIColor colorWithRed:246/255.0 green:8/255.0 blue:142/255.0 alpha:1];
+            self.hud.tintColor = [UIColor whiteColor];
+            self.hud.mode = MBProgressHUDModeIndeterminate;
+            self.hud.minSize = CGSizeMake(50, 50);
+            self.hud.label.text = NSLocalizedString(@"Send",@"");
+            dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+                self.hud.label.text = NSLocalizedString(@"TimeOut",@"");
+                 self.hud.hidden = YES;
+            });
+            [self.hud showAnimated:YES];
         });
-        [self.hud showAnimated:YES];
-    });
     
-    [_UnArray removeAllObjects];
-    NSString *host = [SignalValue ShareValue].SignalIpStr;
-    uint16_t port = [SignalValue ShareValue].SignalPort;
+        [_UnArray removeAllObjects];
+        NSString *host = [SignalValue ShareValue].SignalIpStr;
+        uint16_t port = [SignalValue ShareValue].SignalPort;
 
-    //初始化udpsocket
-    udpSocket = [[GCDAsyncUdpSocket alloc]initWithDelegate:self delegateQueue:dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)];
-    //开始发送
-    //改函数只是启动一次发送 它本身不进行数据的发送, 而是让后台的线程慢慢的发送 也就是说这个函数调用完成后,数据并没有立刻发送,异步发送
-   
-    unsigned char sendout[512]={0};
-    unsigned int i= 0;
+        //初始化udpsocket
+        udpSocket = [[GCDAsyncUdpSocket alloc]initWithDelegate:self delegateQueue:dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)];
+        //开始发送
+        //改函数只是启动一次发送 它本身不进行数据的发送, 而是让后台的线程慢慢的发送 也就是说这个函数调用完成后,数据并没有立刻发送,异步发送
+       
+        unsigned char sendout[512]={0};
+        unsigned int i= 0;
 
-    unsigned char Pro[512] = {0};
+        unsigned char Pro[512] = {0};
 
-    if ([SignalValue ShareValue].ProCount ==2) {
-//   
-//        unsigned char dobuf[512] = {0};
-            for (int i = 0; i < _ProArray.count ; i++) {
+        if ([SignalValue ShareValue].ProCount ==2) {
+    //
+    //        unsigned char dobuf[512] = {0};
+                for (int i = 0; i < _ProArray.count ; i++) {
+                
+                    NSNumber *num = _ProArray[i];
+                    Pro[i] = (unsigned char)num.integerValue;
+               
+                    }
             
-                NSNumber *num = _ProArray[i];
-                Pro[i] = (unsigned char)num.integerValue;
-           
                 }
-        
-            }
 
-    for( ; i < _RemoveArray.count; i++)
-    {
-        NSNumber *b = _RemoveArray[i];
-        sendout[i] = (unsigned char)b.intValue;
-        
-    }
+        for( ; i < _RemoveArray.count; i++)
+        {
+            NSNumber *b = _RemoveArray[i];
+            sendout[i] = (unsigned char)b.intValue;
+            
+        }
 
-    int Intag = 0;
-    for (int i = 0; i < [SignalValue ShareValue].InArray.count; i++) {
-        NSNumber *number = [SignalValue ShareValue].InArray[i];
-        Intag  = number.intValue;
-    }
+        int Intag = 0;
+        for (int i = 0; i < [SignalValue ShareValue].InArray.count; i++) {
+            NSNumber *number = [SignalValue ShareValue].InArray[i];
+            Intag  = number.intValue;
+        }
 
-    if ([SignalValue ShareValue].ProCount == 1) {
+        if ([SignalValue ShareValue].ProCount == 1) {
+            
+            kice_t kic = signal_map_cmd(Intag, sendout, i , [SignalValue ShareValue].Integer);
+            
+            NSData *data1 = [NSData dataWithBytes:(void *)&kic   length:kic.size];
+            [udpSocket sendData:data1 toHost:host port:port withTimeout:60 tag:200];
+            
+            [udpSocket bindToPort:_port error:nil];
+            [udpSocket receiveOnce:nil];
+            
+            //[[SignalValue ShareValue].GetMessage removeAllObjects];
+            
+            kice_t kic1 = scene_print_cmd(0x00);
+            NSData *data2 = [NSData dataWithBytes:(void *)&kic1  length:kic1.size];
+            [udpSocket sendData:data2 toHost:[SignalValue ShareValue].SignalIpStr port:[SignalValue ShareValue].SignalPort withTimeout:60 tag:544];
+            [udpSocket bindToPort:[SignalValue ShareValue].SignalPort error:nil];
+            [udpSocket receiveOnce:nil];
+            //[_RemoveArray removeAllObjects];
+        }else if ([SignalValue ShareValue].ProCount == 2){
         
-        kice_t kic = signal_map_cmd(Intag, sendout, i , [SignalValue ShareValue].Integer);
+            unsigned char buf1[256] ={0};
+            unsigned char num = 0;
         
-        NSData *data1 = [NSData dataWithBytes:(void *)&kic   length:kic.size];
-        [udpSocket sendData:data1 toHost:host port:port withTimeout:60 tag:200];
+            NSInteger length = make_pack_5555(METHOD_SET, CMD_SCREEN_SWITCH_STATUSTABLE, [SignalValue ShareValue].Integer ,Pro, buf1);
+            NSData *data = [NSData dataWithBytes:(void *)&buf1 length:length];
+            [udpSocket sendData:data toHost:host port:port withTimeout:60 tag:200];
+            [udpSocket bindToPort:_port error:nil];
+            [udpSocket receiveOnce:nil];
+          
+            NSInteger length1 = make_pack_5555(METHOD_GET, CMD_SENCE_SWITCH_ID_GAIN, 1, &num, buf1);
+            NSData *data1 = [NSData dataWithBytes:(void *)&buf1  length:length1];
         
-        [udpSocket bindToPort:_port error:nil];
-        [udpSocket receiveOnce:nil];
+            [udpSocket sendData:data1 toHost:[SignalValue ShareValue].SignalIpStr port:[SignalValue ShareValue].SignalPort withTimeout:60 tag:544];
+            [udpSocket bindToPort:[SignalValue ShareValue].SignalPort error:nil];
+            [udpSocket receiveOnce:nil];
+        }
         
-        //[[SignalValue ShareValue].GetMessage removeAllObjects];
-        
-        kice_t kic1 = scene_print_cmd(0x00);
-        NSData *data2 = [NSData dataWithBytes:(void *)&kic1  length:kic1.size];
-        [udpSocket sendData:data2 toHost:[SignalValue ShareValue].SignalIpStr port:[SignalValue ShareValue].SignalPort withTimeout:60 tag:544];
-        [udpSocket bindToPort:[SignalValue ShareValue].SignalPort error:nil];
-        [udpSocket receiveOnce:nil];
-        //[_RemoveArray removeAllObjects];
-    }else if ([SignalValue ShareValue].ProCount == 2){
-        
-        unsigned char buf1[256] ={0};
-        unsigned char num = 0;
-    
-        NSInteger length = make_pack_5555(METHOD_SET, CMD_SCREEN_SWITCH_STATUSTABLE, 18 ,Pro, buf1);
-        NSData *data = [NSData dataWithBytes:(void *)&buf1 length:length];
-        [udpSocket sendData:data toHost:host port:port withTimeout:60 tag:200];
-        [udpSocket bindToPort:_port error:nil];
-        [udpSocket receiveOnce:nil];
-      
-        NSInteger length1 = make_pack_5555(METHOD_GET, CMD_SENCE_SWITCH_ID_GAIN, 1, &num, buf1);
-        NSData *data1 = [NSData dataWithBytes:(void *)&buf1  length:length1];
-    
-        [udpSocket sendData:data1 toHost:[SignalValue ShareValue].SignalIpStr port:[SignalValue ShareValue].SignalPort withTimeout:60 tag:544];
-        [udpSocket bindToPort:[SignalValue ShareValue].SignalPort error:nil];
-        [udpSocket receiveOnce:nil];
-    }
-    
 }
     //选择所有的按钮
 - (void)AllAction:(UIButton *)AllButton
@@ -1300,7 +1302,6 @@
             [_UnArray addObject:numb];
             
             _ProArray[intOut - 1] = [NSNumber numberWithInteger:0];
-            
         }
         // [_UnArray removeAllObjects];
         self.isAllSeleted = NO;
