@@ -698,9 +698,8 @@
             
             
             [DataBaseHelp CreatTable];
-            [DataBaseHelp DeleteWithTemp:integer type:tage Key:string];
-            [DataBaseHelp InsertIntoTemp:integer Type:tage Key:string Values:title];
-   
+            [DataBaseHelp DeleteWithIP:[SignalValue ShareValue].SignalIpStr Temp:integer type:tage Key:string];
+            [DataBaseHelp InsertIntoIP:[SignalValue ShareValue].SignalIpStr Temp:integer Type:tage Key:string Values:title];
             
         }else if (Instring.length >= 5){
             
@@ -712,10 +711,11 @@
             unsigned char tage = (char)[SignalValue ShareValue].ProCount;
             
             [DataBaseHelp CreatTable];
-            [DataBaseHelp DeleteWithTemp:integer type:tage Key:string];
-            [DataBaseHelp InsertIntoTemp:integer Type:tage Key:string Values:str];
-            [DataBaseHelp SelectTemp:integer Type:tage];
-            [DataBaseHelp SelectTemp:integer Type:tage];
+            [DataBaseHelp DeleteWithIP:[SignalValue ShareValue].SignalIpStr Temp:integer type:tage Key:string];
+            [DataBaseHelp InsertIntoIP:[SignalValue ShareValue].SignalIpStr Temp:integer Type:tage Key:string Values:str];
+            [DataBaseHelp SelectIP:[SignalValue ShareValue].SignalIpStr Temp:integer Type:tage];
+            [DataBaseHelp SelectIP:[SignalValue ShareValue].SignalIpStr Temp:integer Type:tage];
+            
    
             
         }else if (Instring.length < 5 &&Instring.length > 0)
@@ -726,9 +726,8 @@
             unsigned char integer = [SignalValue ShareValue].Integer/9;
             unsigned char tage = (char)[SignalValue ShareValue].ProCount;
             [DataBaseHelp CreatTable];
-            [DataBaseHelp DeleteWithTemp:integer type:tage Key:string];
-            [DataBaseHelp InsertIntoTemp:integer Type:tage Key:string Values:Instring];
-            
+            [DataBaseHelp DeleteWithIP:[SignalValue ShareValue].SignalIpStr Temp:integer type:tage Key:string];
+            [DataBaseHelp InsertIntoIP:[SignalValue ShareValue].SignalIpStr Temp:integer Type:tage Key:string Values:Instring];
         }
     }];
     [[SignalValue ShareValue].InArray removeAllObjects];

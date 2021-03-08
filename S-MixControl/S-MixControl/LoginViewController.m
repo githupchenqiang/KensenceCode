@@ -179,7 +179,6 @@
         make.left.equalTo(_text4port.mas_left).with.offset(0);
         make.right.equalTo(_text4port.mas_right).with.offset(0);
         make.height.mas_equalTo(52);
-        
     }];
 
 
@@ -316,7 +315,7 @@
         [SignalValue ShareValue].SignalIpStr = textField.text;
         NSString *str = portText.text;
         unsigned short utfString = [str integerValue];
-        [SignalValue ShareValue].SignalPort =utfString;
+        [SignalValue ShareValue].SignalPort = utfString;
 
     }else
     {

@@ -61,7 +61,7 @@
     unsigned char integertag = [SignalValue ShareValue].Integer/9;
     unsigned char tage = (char)[SignalValue ShareValue].ProCount;
     [DataBaseHelp CreatTable];
-    [DataBaseHelp SelectTemp:integertag Type:tage];
+    [DataBaseHelp SelectIP:[SignalValue ShareValue].SignalIpStr Temp:integertag Type:tage];
     
     for (int i = 0; i < [SignalValue ShareValue].Integer ; i++) {
         UILabel *label = (UILabel *)[self.view viewWithTag:5000+i];
@@ -113,9 +113,9 @@
     UIImage *butImage = [UIImage imageNamed:@"SeleButton-1"];
     butImage = [butImage imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
     [button setBackgroundImage:butImage forState:UIControlStateNormal];
-    if ([SignalValue ShareValue].ProCount == 2) {
+    if ([SignalValue ShareValue].ProCount == 2 || [SignalValue ShareValue].ProCount == 1) {
         [DataBaseHelp CreatTable];
-        [DataBaseHelp SelectTemp:integertag Type:tage];
+        [DataBaseHelp SelectIP:[SignalValue ShareValue].SignalIpStr Temp:integertag Type:tage];
         
         for (int i = 0; i < 12; i++) {
             NSInteger integer = 200+i;
@@ -302,9 +302,6 @@
                 [_Button addGestureRecognizer:LongPress];
                 LongPress.minimumPressDuration = 0.5;
 //            }
-            
-            
-            
             [BacView addSubview:_Button];
             
         }
@@ -351,12 +348,12 @@
             unsigned char tage = (char)[SignalValue ShareValue].ProCount;
             
             [DataBaseHelp CreatTable];
-            [DataBaseHelp DeleteWithTemp:integer type:tage Key:string];
-            [DataBaseHelp InsertIntoTemp:integer Type:tage Key:string Values:title];
+            [DataBaseHelp DeleteWithIP:[SignalValue ShareValue].SignalIpStr Temp:integer type:tage Key:string];
+            [DataBaseHelp InsertIntoIP:[SignalValue ShareValue].SignalIpStr Temp:integer Type:tage Key:string Values:title];
             
             [DataBaseHelp CreatTable];
-            [DataBaseHelp DeleteWithTemp:integer type:tage Key:ConseverString];
-            [DataBaseHelp InsertIntoTemp:integer Type:tage Key:ConseverString Values:title];
+            [DataBaseHelp DeleteWithIP:[SignalValue ShareValue].SignalIpStr Temp:integer type:tage Key:ConseverString];
+            [DataBaseHelp InsertIntoIP:[SignalValue ShareValue].SignalIpStr Temp:integer Type:tage Key:ConseverString Values:title];
             
             
         }else if (_Intextfild.text.length >= 5){
@@ -368,12 +365,13 @@
             unsigned char tage = (char)[SignalValue ShareValue].ProCount;
             
             [DataBaseHelp CreatTable];
-            [DataBaseHelp DeleteWithTemp:integer type:tage Key:string];
-            [DataBaseHelp InsertIntoTemp:integer Type:tage Key:string Values:str];
+            
+            [DataBaseHelp DeleteWithIP:[SignalValue ShareValue].SignalIpStr Temp:integer type:tage Key:string];
+            [DataBaseHelp InsertIntoIP:[SignalValue ShareValue].SignalIpStr Temp:integer Type:tage Key:string Values:str];
      
             [DataBaseHelp CreatTable];
-            [DataBaseHelp DeleteWithTemp:integer type:tage Key:ConseverString];
-            [DataBaseHelp InsertIntoTemp:integer Type:tage Key:ConseverString Values:str];
+            [DataBaseHelp DeleteWithIP:[SignalValue ShareValue].SignalIpStr Temp:integer type:tage Key:ConseverString];
+            [DataBaseHelp InsertIntoIP:[SignalValue ShareValue].SignalIpStr Temp:integer Type:tage Key:ConseverString Values:str];
             
             
         }else if (_Intextfild.text.length < 5 &&_Intextfild.text.length > 0)
@@ -383,12 +381,12 @@
             unsigned char integer = [SignalValue ShareValue].Integer/9;
             unsigned char tage = (char)[SignalValue ShareValue].ProCount;
             [DataBaseHelp CreatTable];
-            [DataBaseHelp DeleteWithTemp:integer type:tage Key:string];
-            [DataBaseHelp InsertIntoTemp:integer Type:tage Key:string Values:_Intextfild.text];
+            [DataBaseHelp DeleteWithIP:[SignalValue ShareValue].SignalIpStr Temp:integer type:tage Key:string];
+            [DataBaseHelp InsertIntoIP:[SignalValue ShareValue].SignalIpStr Temp:integer Type:tage Key:string Values:_Intextfild.text];
             
             [DataBaseHelp CreatTable];
-            [DataBaseHelp DeleteWithTemp:integer type:tage Key:ConseverString];
-            [DataBaseHelp InsertIntoTemp:integer Type:tage Key:ConseverString Values:_Intextfild.text];
+            [DataBaseHelp DeleteWithIP:[SignalValue ShareValue].SignalIpStr Temp:integer type:tage Key:ConseverString];
+            [DataBaseHelp InsertIntoIP:[SignalValue ShareValue].SignalIpStr Temp:integer Type:tage Key:ConseverString Values:_Intextfild.text];
             
         }
         
@@ -479,9 +477,6 @@
 #pragma mark === 点击按钮发送数据====
 - (void)loadAction:(UIButton *)send
 {
-    
-    
-    
     dispatch_async(dispatch_get_main_queue(), ^{
         self.hud = [MBProgressHUD showHUDAddedTo:[UIApplication sharedApplication].keyWindow animated:YES];
         self.hud.activityIndicatorColor = [UIColor colorWithRed:246/255.0 green:8/255.0 blue:142/255.0 alpha:1];
