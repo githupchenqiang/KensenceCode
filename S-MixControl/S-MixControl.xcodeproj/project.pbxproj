@@ -501,7 +501,7 @@
 					};
 					0054C3C31C07E5CA004E4D74 = {
 						CreatedOnToolsVersion = 7.1.1;
-						DevelopmentTeam = 5E7NW7EF3X;
+						DevelopmentTeam = KAVSQ575C6;
 						ProvisioningStyle = Automatic;
 						TestTargetID = 0054C3AA1C07E5C9004E4D74;
 					};
@@ -771,10 +771,10 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				ONLY_ACTIVE_ARCH = NO;
 				OTHER_LDFLAGS = "";
-				PRODUCT_BUNDLE_IDENTIFIER = "www.Kensence.comS-MixcontrolProRe";
+				PRODUCT_BUNDLE_IDENTIFIER = www.Kensence.com.kensenceSmix;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "550d8a84-d789-4faa-a118-08864bcba5da";
-				PROVISIONING_PROFILE_SPECIFIER = KensenceProDuct;
+				PROVISIONING_PROFILE_SPECIFIER = KensenceSmixAndPro;
 				SKIP_INSTALL = NO;
 				TARGETED_DEVICE_FAMILY = 2;
 				USER_HEADER_SEARCH_PATHS = "";
@@ -801,10 +801,10 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				ONLY_ACTIVE_ARCH = NO;
 				OTHER_LDFLAGS = "";
-				PRODUCT_BUNDLE_IDENTIFIER = "www.Kensence.comS-MixcontrolProRe";
+				PRODUCT_BUNDLE_IDENTIFIER = www.Kensence.com.kensenceSmix;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "1ee979b2-05a4-4ea8-b542-1b9a0274b9f8";
-				PROVISIONING_PROFILE_SPECIFIER = KensenceProDuct;
+				PROVISIONING_PROFILE_SPECIFIER = KensenceSmixAndPro;
 				SKIP_INSTALL = NO;
 				TARGETED_DEVICE_FAMILY = 2;
 				USER_HEADER_SEARCH_PATHS = "";
@@ -817,7 +817,7 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 5E7NW7EF3X;
+				DEVELOPMENT_TEAM = KAVSQ575C6;
 				INFOPLIST_FILE = "S-MixControlTests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "www.Kensence.com.S-MixControlTests";
@@ -834,7 +834,7 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 5E7NW7EF3X;
+				DEVELOPMENT_TEAM = KAVSQ575C6;
 				INFOPLIST_FILE = "S-MixControlTests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "www.Kensence.com.S-MixControlTests";
@@ -848,7 +848,8 @@
 		0054C3DF1C07E5CA004E4D74 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "Apple Development";
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = KAVSQ575C6;
 				INFOPLIST_FILE = "S-MixControlUITests/Info.plist";
@@ -856,6 +857,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "www.Kensence.com.S-MixControlUITests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=macosx*]" = "";
 				TEST_TARGET_NAME = "S-MixControl";
 				USES_XCTRUNNER = YES;
 			};
@@ -864,7 +866,8 @@
 		0054C3E01C07E5CA004E4D74 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "Apple Development";
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = KAVSQ575C6;
 				INFOPLIST_FILE = "S-MixControlUITests/Info.plist";
@@ -872,6 +875,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "www.Kensence.com.S-MixControlUITests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=macosx*]" = "";
 				TEST_TARGET_NAME = "S-MixControl";
 				USES_XCTRUNNER = YES;
 			};
