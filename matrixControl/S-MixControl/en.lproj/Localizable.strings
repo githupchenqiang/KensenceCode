@@ -1,0 +1,86 @@
+/* 
+  Localizable.strings
+  S-MixControl
+
+  Created by AmpleSky on 2019/1/5.
+  Copyright © 2019年 KaiXingChuangDa. All rights reserved.
+*/
+"Login" = "Login";
+"TimeOut" = "TimeOut";
+"Login..." = "Login...";
+"Port" = "Port";
+"matrix control" = "matrix control";
+"IP Adress" = "IP Adress";
+"Input Error" = "Input Error";
+"Choose types of control" = "Choose types of control";
+"LinkError" = "LinkError";
+"cancle" = "cancle";
+
+"SignalSwitch" = "SignalSwitch";
+"About" = "About";
+"SceneSwitch" = "SceneSwitch";
+"SceneSave" = "SceneSave";
+"Scene" = "Scene";
+"Sure" = "Sure";
+"Login success" = "Login success";
+
+"product name：Control platform" = "product name：Control platform";
+"Version：1.0.2" = "Version：1.0.2";
+"Phone：0755-27802825" = "Phone：0755-27802825";
+"E-Mail：web@kensence.com" = "E-Mail：web@kensence.com";
+"MainPage：www.kensence.com" = "MainPage：www.kensence.com";
+"Address：ShengZhengBaoAnQuShiYanRoad" = "Address：ShengZhengBaoAnQuShiYanRoad196";
+
+"Save" = "Save";
+"Send..." = "Send...";
+"Timeout" = "Timeout";
+"Save Success" = "Save Success";
+"input Sence Name" = "input Sence Name";
+"input Name" = "input Name";
+"Intput" = "Intput";
+"Cancel" = "Cancel";
+"Sure"  ="Sure";
+"Save" = "Save";
+"Input Sence Name" = "Input Sence Name";
+"Input" = "Input";
+"Load" = "Load";
+"Send" = "Send";
+"timeout" = "timeout";
+"load success" = "load success";
+"Output" = "Output";
+"Input Sence Name" = "Input Sence Name";
+"The digital input" = "The digital input";
+"OK" = "OK";
+"Digital input are not allowed" = "Digital input are not allowed";
+"Please enter the letters" = "Please enter the letters";
+"Clear" = "Clear";
+"Cancle" = "Cancle";
+"OK" = "OK";
+"All" = "All";
+"Send" ="Send";
+"分辨率" = "分辨率";
+"色彩空间" = "色彩空间";
+"分辨率" = "分辨率";
+"brightness" = "brightness";
+"contrast" = "contrast";
+"saturation" = "saturation";
+"chroma" = "chroma";
+"The zoom" = "The zoom";
+"positive" = "positive";
+"The horse" = "The horse";
+"H323Ip" = "H323Ip";
+"bandwidth 256 ~ 4000" = "bandwidth 256 ~ 4000";
+"call" = "call";
+"Hang up" = "Hang up";
+"reset" = "reset";
+"Modify the name" = "Modify the name";
+"named" = "named";
+"IP input incorrect" = "IP input incorrect";
+"Hang up" = "Hang up";
+"Input bandwidth value is too small Please enter the512~4000" = "Input bandwidth value is too small Please enter the512~4000";
+"Beyond the maximum input bandwidth Please enter the512~4000" = "Beyond the maximum input bandwidth Please enter the512~4000";
+"IP input incorrect" = "IP input incorrect";
+"Hang up" = "Hang up";
+"Call" = "Call";
+"输入带宽值过小 请输入512~4000" = "输入带宽值过小 请输入512~4000";
+"输入带宽超出最大值 请输入512~4000" = "输入带宽超出最大值 请输入512~4000";

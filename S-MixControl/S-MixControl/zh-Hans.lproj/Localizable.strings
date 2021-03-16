@@ -58,9 +58,9 @@
 "OK" = "确定";
 "Digital input are not allowed" = "输入有误";
 "Please enter the letters" = "请输入字母";
-"Clear" = "清除";
-"Undo" = "返回";
-"OK" = "发送";
+"Clear" = "全清";
+"Cancle" = "返回";
+"OK" = "执行";
 "All" = "全选";
 "Send" ="发送";
 "分辨率" = "分辨率";

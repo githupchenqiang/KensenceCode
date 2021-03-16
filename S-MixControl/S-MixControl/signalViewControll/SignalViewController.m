@@ -107,13 +107,13 @@
     unsigned char tage = (char)[SignalValue ShareValue].ProCount;
     
     [DataBaseHelp CreatTable];
-    [DataBaseHelp SelectIP:_IPString Temp:integertag Type:tage];
+    [DataBaseHelp SelectIP:[SignalValue ShareValue].deviceIP Temp:integertag Type:tage];
     
     _SenceInName = [NSUserDefaults standardUserDefaults];
     for (int i = 0; i < [SignalValue ShareValue].GetMessage.count; i++) {
           UIButton *inButton = [self.view viewWithTag:90000+115*[SignalValue ShareValue].ProCount+i];
         NSString *Instr = [NSString stringWithFormat:@"%ld",(long)(i+90000+115*[SignalValue ShareValue].ProCount)];
-         NSString *Inname = [_SenceInName objectForKey:[Instr stringByAppendingString:[SignalValue ShareValue].SignalIpStr]];
+         NSString *Inname = [_SenceInName objectForKey:[Instr stringByAppendingString:[SignalValue ShareValue].deviceIP]];
         if (Inname == nil) {
             NSString *count = [NSString stringWithFormat:@"%d",i+1];
             [inButton setTitle:count forState:UIControlStateNormal];
@@ -128,7 +128,7 @@
       
         NSString *outstr = [NSString stringWithFormat:@"%ld",(long)(i+95000+115*[SignalValue ShareValue].ProCount)];
         
-        NSString *nameStr = [_senceName objectForKey:[outstr stringByAppendingString:[SignalValue ShareValue].SignalIpStr]];
+        NSString *nameStr = [_senceName objectForKey:[outstr stringByAppendingString:[SignalValue ShareValue].deviceIP]];
        
         if (nameStr == nil) {
             NSString *CountString = [NSString stringWithFormat:@"%d",i+1];
@@ -179,7 +179,7 @@
         unsigned char tage = (char)[SignalValue ShareValue].ProCount;
         
         [DataBaseHelp CreatTable];
-        [DataBaseHelp SelectIP:_IPString Temp:integer Type:tage];
+        [DataBaseHelp SelectIP:[SignalValue ShareValue].deviceIP Temp:integer Type:tage];
     }
     
 }
@@ -197,7 +197,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    _IPString = [SignalValue ShareValue].SignalIpStr;
+    _IPString = [SignalValue ShareValue].deviceIP;
      self.view.backgroundColor = [UIColor blackColor];
     _BackView = [[UIView alloc]initWithFrame:[UIScreen mainScreen].bounds];
     _BackView.backgroundColor = [UIColor colorWithRed:24/255.0 green:33/255.0 blue:40/255.0 alpha:1];
@@ -516,7 +516,7 @@
                 
                 [DataBaseHelp CreatTable];
                 [DataBaseHelp DeleteWithIP:_IPString Temp:integer type:tage Key:string];
-                [DataBaseHelp InsertIntoIP:[SignalValue ShareValue].SignalIpStr Temp:integer Type:tage Key:string Values:title];
+                [DataBaseHelp InsertIntoIP:[SignalValue ShareValue].deviceIP Temp:integer Type:tage Key:string Values:title];
                 
             }else if (_Intextfild.text.length >= 5){
                
@@ -528,8 +528,8 @@
                 
                 [DataBaseHelp CreatTable];
                 [DataBaseHelp DeleteWithIP:_IPString Temp:integer type:tage Key:string];
-                [DataBaseHelp InsertIntoIP:[SignalValue ShareValue].SignalIpStr Temp:integer Type:tage Key:string Values:str];
-                [DataBaseHelp SelectIP:_IPString Temp:integer Type:tage];
+                [DataBaseHelp InsertIntoIP:[SignalValue ShareValue].deviceIP Temp:integer Type:tage Key:string Values:str];
+                [DataBaseHelp SelectIP:[SignalValue ShareValue].deviceIP Temp:integer Type:tage];
 
             }else if (_Intextfild.text.length < 5 &&_Intextfild.text.length > 0)
             {
@@ -539,7 +539,7 @@
                 unsigned char tage = (char)[SignalValue ShareValue].ProCount;
                 [DataBaseHelp CreatTable];
                 [DataBaseHelp DeleteWithIP:_IPString Temp:integer type:tage Key:string];
-                [DataBaseHelp InsertIntoIP:[SignalValue ShareValue].SignalIpStr Temp:integer Type:tage Key:string Values:_Intextfild.text];
+                [DataBaseHelp InsertIntoIP:[SignalValue ShareValue].deviceIP Temp:integer Type:tage Key:string Values:_Intextfild.text];
                 
             }
            
@@ -623,7 +623,7 @@
                 [DataBaseHelp CreatTable];
                 [DataBaseHelp DeleteWithIP:_IPString Temp:integertag type:tage Key:Nstring];
                 [DataBaseHelp InsertIntoIP:_IPString Temp:integertag Type:tage Key:Nstring Values:str];
-                [DataBaseHelp SelectIP:_IPString Temp:integertag Type:tage];
+                [DataBaseHelp SelectIP:[SignalValue ShareValue].deviceIP Temp:integertag Type:tage];
                 [[SignalValue ShareValue].OutArray removeAllObjects];
               
             }else
@@ -964,7 +964,7 @@
 - (void)setUpView
 {
     // 清除当前选中状态
-   _Clear = [UIButton buttonWithType:UIButtonTypeSystem];
+    _Clear = [UIButton buttonWithType:UIButtonTypeSystem];
     _Clear.frame = CGRectMake(10, _BottomView.center.y - 30,_BottomView.frame.size.width/7,60);
     [_Clear setTitle:NSLocalizedString(@"Clear",@"") forState:UIControlStateNormal];
      _Clear.titleLabel.font = [UIFont systemFontOfSize:23];
@@ -973,73 +973,82 @@
     ClearImage = [ClearImage imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
     [_Clear setBackgroundImage:ClearImage forState:UIControlStateNormal];
     [_Clear addTarget:self action:@selector(Action4Clear:) forControlEvents:UIControlEventTouchDown];
-    [_BottomView addSubview:_Clear];
-    [_Clear mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.centerY.mas_equalTo(_BottomView.center.y);
-        make.left.equalTo(_BottomView.mas_left).with.offset(30);
-        make.width.mas_equalTo(140);
-        make.height.mas_equalTo(60);
-    }];
+//    [_BottomView addSubview:_Clear];
+//    [_Clear mas_makeConstraints:^(MASConstraintMaker *make) {
+//        make.centerY.mas_equalTo(_BottomView.center.y);
+//        make.left.equalTo(_BottomView.mas_left).with.offset(30);
+//        make.width.mas_equalTo(140);
+//        make.height.mas_equalTo(60);
+//    }];
 
-
-    // 取消上一步操作
-    _UnDo = [UIButton buttonWithType:UIButtonTypeSystem];
-    _UnDo.frame = CGRectMake(KScreenWith/4, KScreenHeight/1.2, KScreenWith/12, 50);
-    [_UnDo setTitle:NSLocalizedString(@"Undo",@"") forState:UIControlStateNormal];
-    _UnDo.titleLabel.font = [UIFont systemFontOfSize:23];
-   [_UnDo setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-    UIImage *UndoImage = [UIImage imageNamed:@"Undo"];
-    UndoImage = [UndoImage imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
-    [_UnDo setBackgroundImage:UndoImage forState:UIControlStateNormal];
-    [_UnDo addTarget:self action:@selector(Return:) forControlEvents:UIControlEventTouchDown];
-    [_BottomView addSubview:_UnDo];
-    
-    [_UnDo mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.centerY.mas_equalTo(_BottomView.center.y);
-        make.right.equalTo(_LView.mas_right).with.offset(-30);
-        make.width.mas_equalTo(140);
-        make.height.mas_equalTo(60);
-    }];
-    
-          
-     // 确认按钮
-    _OKButton = [UIButton buttonWithType:UIButtonTypeSystem];
-    _OKButton.frame = CGRectMake(KScreenWith/1.5, KScreenHeight/1.2, KScreenWith/12, 50);
-    [_OKButton setTitle:NSLocalizedString(@"OK",@"") forState:UIControlStateNormal];
-    _OKButton.titleLabel.font = [UIFont systemFontOfSize:23];
-    [_OKButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-    UIImage *OKImage = [UIImage imageNamed:@"OK"];
-    OKImage = [OKImage imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
-    [_OKButton setBackgroundImage:OKImage forState:UIControlStateNormal];
-    [_OKButton addTarget:self action:@selector(SendMessage:) forControlEvents:UIControlEventTouchDown];
-    [_BottomView addSubview:_OKButton];
-    
-    [_OKButton mas_makeConstraints:^(MASConstraintMaker *make) {
+    // 选中全部
+      _Allbutton = [UIButton buttonWithType:UIButtonTypeSystem];
+      _Allbutton.frame = CGRectMake(KScreenWith/1.2, KScreenHeight/1.2, KScreenWith/12, 50);
+      [_Allbutton setTitle:NSLocalizedString(@"All",@"") forState:UIControlStateNormal];
+      _Allbutton.titleLabel.font = [UIFont systemFontOfSize:23];
+      [_Allbutton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+      UIImage *AllImage = [UIImage imageNamed:@"All"];
+      AllImage = [AllImage imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+      [_Allbutton setBackgroundImage:AllImage forState:UIControlStateNormal];
+      [_Allbutton addTarget:self action:@selector(AllAction:) forControlEvents:UIControlEventTouchDown];
+      [_BottomView addSubview:_Allbutton];
+      
+   
+        [_Allbutton mas_makeConstraints:^(MASConstraintMaker *make) {
             make.centerY.mas_equalTo(_BottomView.center.y);
-            make.left.equalTo(_Aview.mas_left).with.offset(30);
+            make.right.equalTo(_LView.mas_right).with.offset(+100);
             make.width.mas_equalTo(140);
             make.height.mas_equalTo(60);
-            
+        }];
+        
+        // 取消上一步操作
+        _UnDo = [UIButton buttonWithType:UIButtonTypeSystem];
+        _UnDo.frame = CGRectMake(KScreenWith/4, KScreenHeight/1.2, KScreenWith/12, 50);
+        [_UnDo setTitle:NSLocalizedString(@"Cancle",@"") forState:UIControlStateNormal];
+        _UnDo.titleLabel.font = [UIFont systemFontOfSize:23];
+       [_UnDo setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+        UIImage *UndoImage = [UIImage imageNamed:@"Undo"];
+        UndoImage = [UndoImage imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+        [_UnDo setBackgroundImage:UndoImage forState:UIControlStateNormal];
+        [_UnDo addTarget:self action:@selector(Return:) forControlEvents:UIControlEventTouchDown];
+        [_BottomView addSubview:_UnDo];
+
+
+//        [_UnDo mas_makeConstraints:^(MASConstraintMaker *make) {
+//            make.centerY.mas_equalTo(_BottomView.center.y);
+//            make.left.equalTo(_Aview.mas_left).with.offset(30);
+//            make.width.mas_equalTo(140);
+//            make.height.mas_equalTo(60);
+//
+//        }];
+    
+        [_UnDo mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.centerY.mas_equalTo(_BottomView.center.y);
+            make.left.equalTo(_BottomView.mas_left).with.offset(30);
+            make.width.mas_equalTo(140);
+            make.height.mas_equalTo(60);
+        }];
+          
+         // 确认按钮
+        _OKButton = [UIButton buttonWithType:UIButtonTypeSystem];
+        _OKButton.frame = CGRectMake(KScreenWith/1.5, KScreenHeight/1.2, KScreenWith/12, 50);
+        [_OKButton setTitle:NSLocalizedString(@"OK",@"") forState:UIControlStateNormal];
+        _OKButton.titleLabel.font = [UIFont systemFontOfSize:23];
+        [_OKButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+        UIImage *OKImage = [UIImage imageNamed:@"OK"];
+        OKImage = [OKImage imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+        [_OKButton setBackgroundImage:OKImage forState:UIControlStateNormal];
+        [_OKButton addTarget:self action:@selector(SendMessage:) forControlEvents:UIControlEventTouchDown];
+        [_BottomView addSubview:_OKButton];
+        
+        [_OKButton mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.centerY.mas_equalTo(_BottomView.center.y);
+            make.right.equalTo(_BottomView.mas_right).with.offset(-30);
+            make.width.mas_equalTo(140);
+            make.height.mas_equalTo(60);
         }];
 
-      // 选中全部
-    _Allbutton = [UIButton buttonWithType:UIButtonTypeSystem];
-    _Allbutton.frame = CGRectMake(KScreenWith/1.2, KScreenHeight/1.2, KScreenWith/12, 50);
-    [_Allbutton setTitle:NSLocalizedString(@"All",@"") forState:UIControlStateNormal];
-    _Allbutton.titleLabel.font = [UIFont systemFontOfSize:23];
-    [_Allbutton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-    UIImage *AllImage = [UIImage imageNamed:@"All"];
-    AllImage = [AllImage imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
-    [_Allbutton setBackgroundImage:AllImage forState:UIControlStateNormal];
-    [_Allbutton addTarget:self action:@selector(AllAction:) forControlEvents:UIControlEventTouchDown];
-    [_BottomView addSubview:_Allbutton];
-    
-    [_Allbutton mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.centerY.mas_equalTo(_BottomView.center.y);
-        make.right.equalTo(_BottomView.mas_right).with.offset(-30);
-        make.width.mas_equalTo(140);
-        make.height.mas_equalTo(60);
-    }];
+   
 }
 //清除
 -(void)Action4Clear:(UIButton *)Clear

@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="ipad9_7" orientation="landscape" layout="fullscreen" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController storyboardIdentifier="Root" id="BYZ-38-t0r" customClass="ViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
+                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="header-bg" translatesAutoresizingMaskIntoConstraints="NO" id="43y-u7-oxr">
+                                <rect key="frame" x="0.0" y="0.0" width="1024" height="58"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="58" id="Hwp-QJ-UKz"/>
+                                </constraints>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="Hwp-QJ-UKz"/>
+                                    </mask>
+                                </variation>
+                                <variation key="heightClass=regular-widthClass=regular">
+                                    <mask key="constraints">
+                                        <include reference="Hwp-QJ-UKz"/>
+                                    </mask>
+                                </variation>
+                            </imageView>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="5Ik-3n-9el">
+                                <rect key="frame" x="20" y="0.0" width="984" height="58"/>
+                                <color key="backgroundColor" red="0.3333333432674408" green="0.3333333432674408" blue="0.3333333432674408" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="57" id="yGG-Jh-hYv"/>
+                                </constraints>
+                                <segments>
+                                    <segment title="SceneSave"/>
+                                    <segment title="SceneSwitch"/>
+                                    <segment title=""/>
+                                </segments>
+                                <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </segmentedControl>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="43y-u7-oxr" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="ApP-FL-uT0"/>
+                            <constraint firstItem="43y-u7-oxr" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="QBN-KU-bKm"/>
+                            <constraint firstAttribute="trailing" secondItem="43y-u7-oxr" secondAttribute="trailing" id="Zg6-hd-eYG"/>
+                            <constraint firstItem="5Ik-3n-9el" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="enU-hd-6Ed"/>
+                            <constraint firstItem="5Ik-3n-9el" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="qyu-07-wjg"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="5Ik-3n-9el" secondAttribute="trailing" id="wyv-bt-OxU"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="subviews">
+                                <exclude reference="43y-u7-oxr"/>
+                                <exclude reference="5Ik-3n-9el"/>
+                            </mask>
+                            <mask key="constraints">
+                                <exclude reference="ApP-FL-uT0"/>
+                                <exclude reference="QBN-KU-bKm"/>
+                                <exclude reference="Zg6-hd-eYG"/>
+                            </mask>
+                        </variation>
+                        <variation key="heightClass=regular-widthClass=regular">
+                            <mask key="subviews">
+                                <include reference="43y-u7-oxr"/>
+                                <include reference="5Ik-3n-9el"/>
+                            </mask>
+                            <mask key="constraints">
+                                <include reference="ApP-FL-uT0"/>
+                                <include reference="QBN-KU-bKm"/>
+                                <include reference="Zg6-hd-eYG"/>
+                            </mask>
+                        </variation>
+                    </view>
+                    <connections>
+                        <outlet property="HeaderImage" destination="43y-u7-oxr" id="OOs-hY-8PA"/>
+                        <outlet property="SegMent" destination="5Ik-3n-9el" id="U6V-yk-CKj"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-146" y="-9"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="header-bg" width="15" height="50"/>
+    </resources>
+</document>

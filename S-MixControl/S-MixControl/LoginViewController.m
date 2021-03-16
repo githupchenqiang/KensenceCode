@@ -376,22 +376,38 @@
         
 #pragma mark ===打印场景发送数据
         if ([SignalValue ShareValue].ProCount == 2) {
-           
-            unsigned char buf[256] = {0};
-            unsigned char num = 0;
-//            NSInteger length = make_pack_5555(METHOD_GET, CMD_SENCE_SWITCH_ID_GAIN, 1, &num, buf);
-            NSInteger length = make_pack_5555(METHOD_GET, CMD_GLOBAL_ALL, 0, &num, buf);
-            NSData *data1 = [NSData dataWithBytes:(void *)&buf  length:length];
             
-            [_udpSocket sendData:data1 toHost:[SignalValue ShareValue].SignalIpStr port:[SignalValue ShareValue].SignalPort withTimeout:60 tag:544];
+            unsigned char buf2[256] = {0};
+            unsigned char num3 = 0x81;
+
+            NSInteger length2 = make_pack_5555(METHOD_GET, CMD_GLOBAL_CONFIG_NET, 1, &num3, buf2);
+            NSData *data4 = [NSData dataWithBytes:(void *)&buf2  length:length2];
+
+            [_udpSocket sendData:data4 toHost:[SignalValue ShareValue].SignalIpStr port:[SignalValue ShareValue].SignalPort withTimeout:60 tag:990];
             [_udpSocket bindToPort:[SignalValue ShareValue].SignalPort error:nil];
             [_udpSocket receiveOnce:nil];
-            
-            NSLog(@"%@==%d",[SignalValue ShareValue].SignalIpStr,[SignalValue ShareValue].SignalPort
-                  );
+            NSLog(@"==44==%@",data4);
             
             
             dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+                unsigned char buf[256] = {0};
+                unsigned char num = 0;
+    //            NSInteger length = make_pack_5555(METHOD_GET, CMD_SENCE_SWITCH_ID_GAIN, 1, &num, buf);
+                NSInteger length = make_pack_5555(METHOD_GET, CMD_GLOBAL_ALL, 0, &num, buf);
+                NSData *data1 = [NSData dataWithBytes:(void *)&buf  length:length];
+                
+                [_udpSocket sendData:data1 toHost:[SignalValue ShareValue].SignalIpStr port:[SignalValue ShareValue].SignalPort withTimeout:60 tag:544];
+                [_udpSocket bindToPort:[SignalValue ShareValue].SignalPort error:nil];
+                [_udpSocket receiveOnce:nil];
+                NSLog(@"====%@",data1);
+                NSLog(@"%@==%d",[SignalValue ShareValue].SignalIpStr,[SignalValue ShareValue].SignalPort
+                      );
+               
+            });
+           
+           
+            
+            dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.7 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
                 
                 unsigned char buf1[256] = {0};
                 unsigned char num1 = 1;
@@ -402,21 +418,31 @@
                 [_udpSocket sendData:data2 toHost:[SignalValue ShareValue].SignalIpStr port:[SignalValue ShareValue].SignalPort withTimeout:60 tag:990];
                 [_udpSocket bindToPort:[SignalValue ShareValue].SignalPort error:nil];
                 [_udpSocket receiveOnce:nil];
-                NSLog(@"====%@",data2);
+                NSLog(@"==33==%@",data2);
             });
-            
-          
-       
-            NSLog(@"====%@",data1);
+                        
             
         }else if ([SignalValue ShareValue].ProCount == 1){
-          
-            kice_t kic = scene_print_cmd(0x00);
-            NSData *data1 = [NSData dataWithBytes:(void *)&kic  length:kic.size];
             
-            [_udpSocket sendData:data1 toHost:[SignalValue ShareValue].SignalIpStr port:[SignalValue ShareValue].SignalPort withTimeout:60 tag:544];
+            
+            
+            kice_t kic1 = global_config_print_cmd();
+            NSData *data2 = [NSData dataWithBytes:(void *)&kic1  length:kic1.size];
+            [_udpSocket sendData:data2 toHost:[SignalValue ShareValue].SignalIpStr port:[SignalValue ShareValue].SignalPort withTimeout:60 tag:5445];
             [_udpSocket bindToPort:[SignalValue ShareValue].SignalPort error:nil];
             [_udpSocket receiveOnce:nil];
+            
+            
+            dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+                kice_t kic = scene_print_cmd(0x00);
+                NSData *data1 = [NSData dataWithBytes:(void *)&kic  length:kic.size];
+                
+                [_udpSocket sendData:data1 toHost:[SignalValue ShareValue].SignalIpStr port:[SignalValue ShareValue].SignalPort withTimeout:60 tag:544];
+                [_udpSocket bindToPort:[SignalValue ShareValue].SignalPort error:nil];
+                [_udpSocket receiveOnce:nil];
+            
+            });
+  
         }
         
         //将用户保存在本地
@@ -477,9 +503,30 @@
     kice_t *kic = (kice_t *)a;
     unsigned char cmd = kic->data[0];
      const  unsigned char *resultBuff = [data bytes];
-   
+    if ([SignalValue ShareValue].ProCount == 1) {
+        if(kic->data[8] == 0x05){
+            NSData *getData = [data subdataWithRange:NSMakeRange(28, 6)];
+            NSString * str  =[[NSString alloc] initWithData:getData encoding:NSUTF8StringEncoding];
+            NSString* aStr= [[NSString alloc] initWithData:getData encoding:NSASCIIStringEncoding];
+            if (str.length > 0) {
+                [SignalValue ShareValue].deviceIP = str;
+            }else if(aStr.length > 0){
+                [SignalValue ShareValue].deviceIP = aStr;
+            }
+        }
+    }
     
-    if (resultBuff[0] == 0x55 && resultBuff[1] == 0x55 && resultBuff[7] == 0x04 && resultBuff[8] == 0x02) {
+    if(resultBuff[0] == 0x55 && resultBuff[1] == 0x55 && resultBuff[8] == 0x09){
+        NSData *getData = [data subdataWithRange:NSMakeRange(24, 6)];
+        NSString * str  =[[NSString alloc] initWithData:getData encoding:NSUTF8StringEncoding];
+        NSString* aStr= [[NSString alloc] initWithData:getData encoding:NSASCIIStringEncoding];
+        if (str.length > 0) {
+            [SignalValue ShareValue].deviceIP = str;
+        }else if(aStr.length > 0){
+            [SignalValue ShareValue].deviceIP = aStr;
+        }
+        
+    }else if (resultBuff[0] == 0x55 && resultBuff[1] == 0x55 && resultBuff[7] == 0x04 && resultBuff[8] == 0x02) {
 //        unsigned short count = 0;
         unsigned char Probuf[512] = {0};
         for (unsigned int i = 0; i < [SignalValue ShareValue].Integer; i++) {
